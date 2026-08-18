@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<title id="title">Groovefolio logo mark</title><desc id="desc">A vinyl record emerging from a folio sleeve with an orange accent.</desc>
+<rect width="256" height="256" rx="54" fill="#F7F4F0"/>
+<circle cx="122" cy="84" r="63" fill="#171513"/>
+<circle cx="122" cy="84" r="48" fill="none" stroke="#F7F4F0" stroke-opacity=".12" stroke-width="2"/>
+<circle cx="122" cy="84" r="37" fill="none" stroke="#F7F4F0" stroke-opacity=".1" stroke-width="2"/>
+<circle cx="122" cy="84" r="16" fill="#F7F4F0"/>
+<path d="M48 93h141c12 0 21 9 21 21v89c0 12-9 21-21 21H69c-12 0-21-9-21-21V93Z" fill="#171513"/>
+<path d="M192 93h18v131h-18z" fill="#D4622A"/>
+<path d="M48 93h80l15 21H48z" fill="#211F1C"/>
+</svg>
