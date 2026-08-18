@@ -152,3 +152,108 @@ initScrollReveals();
 initPhoneTilt();
 initHeroParallax();
 initHeaderState();
+
+
+// V3: page progress ----------------------------------------------------------
+function initPageProgress() {
+  const bar = document.querySelector('.scroll-progress span');
+  if (!bar) return;
+
+  let ticking = false;
+
+  const update = () => {
+    ticking = false;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    bar.style.transform = `scaleX(${progress})`;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }, { passive: true });
+
+  window.addEventListener('resize', update, { passive: true });
+  update();
+}
+
+// V3: sticky product story ---------------------------------------------------
+function initProductStory() {
+  const steps = [...document.querySelectorAll('.story-step[data-story]')];
+  const screens = [...document.querySelectorAll('.story-screen[data-screen]')];
+  if (!steps.length || !screens.length) return;
+
+  const activate = (name) => {
+    steps.forEach((step) => {
+      step.classList.toggle('is-active', step.dataset.story === name);
+    });
+    screens.forEach((screen) => {
+      screen.classList.toggle('is-active', screen.dataset.screen === name);
+    });
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    activate(steps[0].dataset.story);
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+    if (visible.length) {
+      activate(visible[0].target.dataset.story);
+    }
+  }, {
+    threshold: [0.35, 0.5, 0.65],
+    rootMargin: '-18% 0px -30% 0px',
+  });
+
+  steps.forEach((step) => observer.observe(step));
+}
+
+// V3: shelf coverage concept animation --------------------------------------
+function initCoverageDemo() {
+  const card = document.querySelector('[data-coverage-card]');
+  const number = document.querySelector('[data-coverage-number]');
+  if (!card || !number) return;
+
+  const finish = () => {
+    card.classList.add('coverage-animated');
+    if (reducedMotion.matches) {
+      number.textContent = '68';
+      return;
+    }
+
+    const duration = 1050;
+    const start = performance.now();
+
+    const frame = (now) => {
+      const elapsed = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - elapsed, 3);
+      number.textContent = String(Math.round(68 * eased));
+      if (elapsed < 1) requestAnimationFrame(frame);
+    };
+
+    requestAnimationFrame(frame);
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    finish();
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries.some((entry) => entry.isIntersecting)) return;
+    observer.disconnect();
+    finish();
+  }, { threshold: .38 });
+
+  observer.observe(card);
+}
+
+initPageProgress();
+initProductStory();
+initCoverageDemo();

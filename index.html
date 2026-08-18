@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
   <header class="site-header">
     <div class="shell nav">
       <a class="brand" href="#top" aria-label="Groovefolio home">
@@ -21,7 +22,7 @@
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">Open navigation</span><i></i><i></i></button>
       <nav id="site-nav" class="nav-links" aria-label="Primary navigation">
-        <a href="#features">Features</a><a href="#showcase">Screenshots</a><a href="#roadmap">Roadmap</a><a href="#privacy">Local-first</a>
+        <a href="#features">Features</a><a href="#story">How it works</a><a href="#showcase">Screenshots</a><a href="#roadmap">Roadmap</a><a href="#privacy">Local-first</a>
         <a class="button button-small" href="#features">Explore Features</a>
       </nav>
     </div>
@@ -63,6 +64,127 @@
       </div>
     </section>
 
+
+    <section id="story" class="product-story">
+      <div class="shell story-heading">
+        <p class="section-kicker">One collection. A living history.</p>
+        <h2>From shelf to spin<br>without losing the thread.</h2>
+        <p>Scroll through the workflow. The phone follows along as Groovefolio moves from cataloging a record to understanding how you actually listen.</p>
+      </div>
+
+      <div class="shell story-layout">
+        <div class="story-steps" aria-label="Groovefolio product flow">
+          <article class="story-step is-active" data-story="collection">
+            <div class="story-number">01</div>
+            <div>
+              <div class="story-status"><span>AVAILABLE</span> Collection</div>
+              <h3>Build the shelf.</h3>
+              <p>Add records manually or enrich them with artwork, genres, year, label, and release metadata.</p>
+            </div>
+          </article>
+
+          <article class="story-step" data-story="plays">
+            <div class="story-number">02</div>
+            <div>
+              <div class="story-status"><span>AVAILABLE</span> Listening</div>
+              <h3>Remember every spin.</h3>
+              <p>Log plays so your collection becomes a history of what actually reaches the turntable—not just what you own.</p>
+            </div>
+          </article>
+
+          <article class="story-step" data-story="discogs">
+            <div class="story-number">03</div>
+            <div>
+              <div class="story-status"><span>AVAILABLE</span> Discogs</div>
+              <h3>Find the exact release.</h3>
+              <p>Search vinyl pressings, choose the release you own, and autofill editable metadata instead of typing everything by hand.</p>
+            </div>
+          </article>
+
+          <article class="story-step" data-story="stats">
+            <div class="story-number">04</div>
+            <div>
+              <div class="story-status"><span>GROWING</span> Stats</div>
+              <h3>Understand the relationship.</h3>
+              <p>See favorites and listening trends today, with deeper collection-utilization insights planned as the play history grows.</p>
+            </div>
+          </article>
+
+          <article class="story-step" data-story="nfc">
+            <div class="story-number">05</div>
+            <div>
+              <div class="story-status planned"><span>PLANNED</span> NFC</div>
+              <h3>Tap. Spin. Logged.</h3>
+              <p>The NFC foundation is already in the data model. The future workflow is designed to make logging a physical record nearly frictionless.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="story-phone-wrap">
+          <div class="story-phone-glow" aria-hidden="true"></div>
+          <div class="story-phone" aria-live="polite">
+            <div class="story-phone-camera"></div>
+            <div class="story-phone-screen">
+              <div class="story-screen is-active" data-screen="collection">
+                <div class="mock-appbar"><strong>Collection</strong><span>12 records</span></div>
+                <div class="mock-search">Search your collection</div>
+                <div class="mock-albums">
+                  <div class="mock-album"><div class="cover cover-orange"></div><div><strong>1989 (Taylor's Version)</strong><span>Taylor Swift · Pop</span></div></div>
+                  <div class="mock-album"><div class="cover cover-cream"></div><div><strong>A Love Supreme</strong><span>John Coltrane · Jazz</span></div></div>
+                  <div class="mock-album"><div class="cover cover-dark"></div><div><strong>Rumours</strong><span>Fleetwood Mac · Rock</span></div></div>
+                </div>
+                <div class="mock-fab">＋</div>
+              </div>
+
+              <div class="story-screen" data-screen="plays">
+                <div class="mock-now">
+                  <span class="mock-eyebrow">LOG A PLAY</span>
+                  <div class="mock-record"><i></i></div>
+                  <strong>A Love Supreme</strong>
+                  <span>John Coltrane</span>
+                  <button type="button" tabindex="-1">▶ Log full album</button>
+                </div>
+                <div class="mock-history">
+                  <div><span>Today</span><strong>1 play</strong></div>
+                  <div><span>This month</span><strong>12 plays</strong></div>
+                  <div><span>All time</span><strong>183 plays</strong></div>
+                </div>
+              </div>
+
+              <div class="story-screen story-discogs-screen" data-screen="discogs">
+                <img src="assets/screenshots/discogs-search.jpg" alt="Real Groovefolio Discogs release search">
+                <div class="screen-caption">Real development build</div>
+              </div>
+
+              <div class="story-screen" data-screen="stats">
+                <div class="mock-appbar"><strong>Stats</strong><span>All time</span></div>
+                <div class="stat-hero"><span>Total plays</span><strong>183</strong><small>+18 this month</small></div>
+                <div class="stat-chart" aria-hidden="true">
+                  <i style="--h:32%"></i><i style="--h:58%"></i><i style="--h:46%"></i><i style="--h:78%"></i><i style="--h:62%"></i><i style="--h:94%"></i>
+                </div>
+                <div class="stat-row"><span>Most played</span><strong>folklore · 19</strong></div>
+                <div class="stat-row"><span>Top genre</span><strong>Pop · 36%</strong></div>
+                <div class="stat-row future"><span>Future insight</span><strong>Shelf coverage</strong></div>
+              </div>
+
+              <div class="story-screen" data-screen="nfc">
+                <div class="nfc-demo">
+                  <span class="mock-eyebrow">PLANNED WORKFLOW</span>
+                  <div class="nfc-record"><i></i></div>
+                  <div class="nfc-waves"><i></i><i></i><i></i></div>
+                  <div class="nfc-phone-icon">▯</div>
+                  <h4>Record detected</h4>
+                  <p>A future NFC tap can identify the album and open a fast play-log action.</p>
+                  <div class="nfc-success">✓ Ready to log</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="story-phone-note">Interactive site illustration. Discogs panel uses a real Groovefolio build screenshot.</p>
+        </div>
+      </div>
+    </section>
+
     <section id="showcase" class="showcase-section"><div class="shell">
       <div class="section-heading light-heading"><div><p class="section-kicker">In the app</p><h2>Built to feel fast,<br>focused, and physical.</h2></div><p>Real Groovefolio development builds. More screenshots will be added as the app moves toward release.</p></div>
       <div class="phone-stage">
@@ -71,6 +193,44 @@
       </div>
       <div class="screenshot-note"><span>More coming soon</span><p>Collection, Album Detail, Stats, and listening-history screenshots will be added as the showcase evolves.</p></div>
     </div></section>
+
+
+    <section class="coverage-section">
+      <div class="shell coverage-grid">
+        <div class="coverage-copy">
+          <p class="section-kicker">Future Groovefolio analytics</p>
+          <h2>Not just how many records you own.<br><span>How much of the shelf you actually use.</span></h2>
+          <p>Discogs can tell you what is in a collection. Groovefolio can eventually use local play history to tell you what your relationship with that collection looks like.</p>
+          <div class="coverage-pills">
+            <span>Never played</span>
+            <span>Dormant records</span>
+            <span>Rotation depth</span>
+            <span>Collection vs listening</span>
+          </div>
+        </div>
+
+        <div class="coverage-card motion-reveal" data-coverage-card>
+          <div class="coverage-card-top">
+            <div>
+              <span class="coverage-label">SHELF COVERAGE · CONCEPT</span>
+              <strong><span data-coverage-number>0</span>%</strong>
+            </div>
+            <span class="coverage-period">Last 12 months</span>
+          </div>
+          <div class="record-shelf" aria-label="Illustrative shelf coverage visualization">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="coverage-breakdown">
+            <div><span>Played this year</span><strong>102</strong></div>
+            <div><span>Not yet in rotation</span><strong>48</strong></div>
+            <div><span>Collection</span><strong>150</strong></div>
+          </div>
+          <p>Illustrative future metric—not current user data.</p>
+        </div>
+      </div>
+    </section>
 
     <section id="privacy" class="section shell local-first">
       <div class="local-mark"><div class="local-disc"></div><span>LOCAL</span></div>
