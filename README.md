@@ -1,6 +1,6 @@
 # Groovefolio Site
 
-Marketing/showcase site for [Groovefolio](https://github.com/hunter-goller/Groovefolio), a local-first vinyl collection and listening-history app.
+Marketing/showcase site for Groovefolio, a local-first vinyl collection and listening-history app.
 
 ## Included
 
