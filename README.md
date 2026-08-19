@@ -1,71 +1,56 @@
 # Groovefolio Site
 
-Marketing/showcase site for Groovefolio, a local-first vinyl collection and listening-history Android app.
+Public marketing/showcase site for **Groovefolio**, a local-first Android app for vinyl collectors.
 
-## Purpose
+Live site: `https://hunter-goller.github.io/Groovefolio-Site/`
 
-This repository contains the public Groovefolio product website. It is intentionally separate from the Flutter application repository so the app itself can remain private later without affecting the public GitHub Pages site.
+This repository is intentionally separate from the Flutter application repository. It contains only the public product website and marketing assets.
 
-The website is a product showcase, not a web version of Groovefolio.
+## What is here
 
-## Included
-
-- Responsive static landing page
-- Groovefolio-styled SVG mark and wordmark
-- Real Groovefolio development screenshots
-- Collection, album detail, play logging, stats, Discogs search, and Discogs collection-import showcases
-- Sticky “How it works” product story
-- Discogs import workflow sequence
-- Listening-focused product differentiator section
-- Future Shelf Coverage analytics concept
-- Local-first product explanation
-- Product roadmap
-- Google Play “Coming Soon” CTA
-- Mobile navigation and reduced-motion support
-- GitHub Pages deployment workflow
-- No framework or build step required
-
-## Tech
-
-- HTML
-- CSS
-- Vanilla JavaScript
-- GitHub Actions Pages deployment
+- Static HTML landing page
+- One canonical stylesheet: `styles.css`
+- One canonical JavaScript file: `script.js`
+- Official Groovefolio branding copied from the app's approved branding assets
+- Real development screenshots for Collection, Album Details, play logging, stats, Discogs search, and Discogs collection import
+- Responsive desktop/mobile layouts
+- Reduced-motion accessibility support
+- GitHub Pages deployment through GitHub Actions
 - `.nojekyll`
 
-## V4 assets
+## Structure
 
-Current V4 screenshot assets include:
-
-- `assets/screenshots/collection-most-played.jpg`
-- `assets/screenshots/album-details.jpg`
-- `assets/screenshots/log-play.jpg`
-- `assets/screenshots/stats-overview.jpg`
-- `assets/screenshots/stats-listening.jpg`
-- `assets/screenshots/discogs-search-current.jpg`
-- `assets/screenshots/discogs-import-review.jpg`
-- `assets/screenshots/discogs-importing.jpg`
-- `assets/screenshots/discogs-import-complete.jpg`
-
-The current captures come from a development build. `styles-v4.css` masks only the small Flutter DEBUG ribbon in the screenshots. Replace these images with clean profile/release-build captures when final marketing screenshots are available; the layout does not need to change.
+```text
+.
+├── .github/workflows/pages.yml
+├── .nojekyll
+├── index.html
+├── styles.css
+├── script.js
+└── assets/
+    ├── branding/
+    └── screenshots/
+```
 
 ## Branding
+
+The site uses web-sized derivatives of the approved Groovefolio raster artwork from the Flutter app repository rather than the older hand-built website SVG approximations. The authoritative high-resolution masters stay in the app repository.
+
+Primary brand colors:
 
 - Warm paper: `#F7F4F0`
 - Ink: `#171513`
 - Groovefolio orange: `#D4622A`
 
-The site currently uses the existing site SVG interpretation of the Groovefolio mark. Replace the site SVG/favicon with the exact master assets from the Android app when those exports are copied into this repository.
+## Screenshots
 
-## Deployment
+The current public screenshots come from a development build. The stylesheet masks the small Flutter DEBUG corner ribbon in the website frames. Replace the images with clean profile/release captures later; the layout does not need to change.
 
-Push changes to `main`. The existing GitHub Actions Pages workflow deploys the site automatically.
-
-Live site:
-
-`https://hunter-goller.github.io/Groovefolio-Site/`
+Screenshots are stored as high-quality WebP and include intrinsic `width`/`height` attributes in `index.html` to reduce page weight and prevent layout shift.
 
 ## Local preview
+
+From the repository root:
 
 ```bash
 python -m http.server 8080
@@ -73,6 +58,10 @@ python -m http.server 8080
 
 Then open `http://localhost:8080`.
 
-## Notes
+## Deployment
+
+Push to `main`. The existing GitHub Actions workflow deploys the repository to GitHub Pages.
+
+## Discogs notice
 
 Groovefolio is not affiliated with Discogs. Discogs is a trademark of Zink Media, LLC.
