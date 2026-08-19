@@ -1,0 +1,48 @@
+/* Groovefolio Site V4.3 — exact product branding
+   Uses the authoritative PNG artwork from the current Flutter app repo. */
+
+.brand {
+  line-height: 0;
+}
+
+.brand-wordmark {
+  display: block;
+  width: 178px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* The approved mark includes transparent safe space. Give it a slightly
+   larger CSS box than the old hand-built SVG so the visible mark reads
+   at the same apparent size. */
+.folio-top img[src*="groovefolio-icon-mark"],
+.footer-brand img[src*="groovefolio-icon-mark"] {
+  object-fit: contain;
+}
+
+.folio-top img[src*="groovefolio-icon-mark"] {
+  width: 62px;
+  height: 62px;
+}
+
+.footer-brand img[src*="groovefolio-icon-mark"] {
+  width: 48px;
+  height: 48px;
+}
+
+@media (max-width: 760px) {
+  .brand-wordmark {
+    width: 150px;
+  }
+
+  .folio-top img[src*="groovefolio-icon-mark"] {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (max-width: 390px) {
+  .brand-wordmark {
+    width: 138px;
+  }
+}
