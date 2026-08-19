@@ -46,7 +46,7 @@ Primary brand colors:
 
 The current public screenshots come from a development build. The stylesheet masks the small Flutter DEBUG corner ribbon in the website frames. Replace the images with clean profile/release captures later; the layout does not need to change.
 
-Screenshots are stored as high-quality WebP and include intrinsic `width`/`height` attributes in `index.html` to reduce page weight and prevent layout shift.
+Screenshots are stored as high-quality WebP and include intrinsic `width`/`height` attributes in `index.html` to reduce page weight and prevent layout shift. Responsive image CSS keeps `height: auto`, so those intrinsic dimensions reserve space without stretching screenshots on narrow screens.
 
 ## Local preview
 
