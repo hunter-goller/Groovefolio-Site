@@ -1327,31 +1327,6 @@ body.motion-ready .roadmap li.motion-visible {
   object-position: center top;
 }
 
-/* Current screenshots were captured from a debug build. Mask only the small
-   Flutter DEBUG corner ribbon; replace with clean release captures later. */
-.real-story-screen::after,
-.flow-phone::after,
-.v4-shot-grid .phone::after,
-.relationship-phone .phone::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 72px;
-  height: 72px;
-  background: #0d0d0c;
-  clip-path: polygon(0 0, 100% 0, 100% 100%);
-  pointer-events: none;
-  z-index: 4;
-}
-
-.v4-shot-grid .phone::after,
-.relationship-phone .phone::after {
-  top: 10px;
-  right: 10px;
-  border-top-right-radius: 29px;
-}
-
 /* Discogs import ----------------------------------------------------------- */
 .import-section {
   padding: 126px 0 118px;
@@ -1692,11 +1667,6 @@ body.motion-ready .roadmap li.motion-visible {
     width: min(330px, 88vw);
     margin-left: 0;
   }
-
-  .real-story-screen::after {
-    width: 39px;
-    height: 39px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2016,22 +1986,7 @@ body.motion-ready .roadmap li.motion-visible {
     height: auto;
     border-radius: 23px;
   }
-
-  /* Mask the debug ribbon in the current development captures. */
-  .story-mobile-shot::after {
-    content: "";
-    position: absolute;
-    top: 7px;
-    right: 7px;
-    width: 36px;
-    height: 36px;
-    background: #0d0d0c;
-    clip-path: polygon(0 0, 100% 0, 100% 100%);
-    border-top-right-radius: 23px;
-    pointer-events: none;
-  }
-
-  /* Discogs import becomes a swipeable three-step flow on mobile. */
+/* Discogs import becomes a swipeable three-step flow on mobile. */
   .import-section,
   .relationship-section {
     padding: 76px 0;
@@ -2335,5 +2290,49 @@ body.motion-ready .roadmap li.motion-visible {
 @media (max-width: 390px) {
   .brand-wordmark {
     width: 138px;
+  }
+}
+
+/* ==========================================================================
+   CURRENT PRODUCT PASS · 2026-08-24
+   ========================================================================== */
+
+.import-flow.import-flow-two {
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  max-width: 920px;
+  margin-inline: auto;
+  margin-top: 72px;
+}
+
+.import-flow-two .flow-phone {
+  width: min(100%, 260px);
+}
+
+.v4-shot-grid {
+  align-items: start;
+}
+
+.v4-shot-grid .shot-card {
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .import-flow.import-flow-two {
+    display: flex;
+    max-width: none;
+    margin-top: 42px;
+    margin-inline: -16px;
+  }
+
+  .import-flow-two .flow-phone {
+    width: min(210px, 60vw);
+  }
+
+  .story-status {
+    gap: 7px;
+  }
+
+  .story-status span {
+    white-space: nowrap;
   }
 }

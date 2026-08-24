@@ -2,41 +2,47 @@
 
 Public marketing/showcase site for **Groovefolio**, a local-first Android app for vinyl collectors.
 
-Live site: `https://hunter-goller.github.io/Groovefolio-Site/`
+**Live site:** `https://groovefolio.app/`
 
-This repository is intentionally separate from the Flutter application repository. It contains only the public product website and marketing assets.
+The website repository is intentionally separate from the Flutter application repository. This repository contains only the public product site and web-optimized marketing assets.
 
-## What is here
+## Current product story
 
-- Static HTML landing page
-- One canonical stylesheet: `styles.css`
-- One canonical JavaScript file: `script.js`
-- Official Groovefolio branding copied from the app's approved branding assets
-- Real development screenshots for Collection, Album Details, play logging, stats, Discogs search, and Discogs collection import
-- Responsive desktop/mobile layouts
-- Reduced-motion accessibility support
-- GitHub Pages deployment through GitHub Actions
-- `.nojekyll`
+The current Android development build shown on the site includes:
 
-## Structure
+- local-first collection management
+- artwork, genres, release metadata, and side-grouped tracklists
+- manual play logging with full-album/side selection and editable date/time
+- current-year and all-time listening stats
+- Discogs OAuth, exact-release search/autofill, connected collection import, and barcode lookup
+- first-run onboarding
+- Collection swipe actions for Edit/Delete
+- local taste-profile and explainable Discover recommendations
+
+NFC device read/write/auto-log flows and deeper listening stories such as Album Wrapped remain future work.
+
+## Website structure
 
 ```text
 .
 ├── .github/workflows/pages.yml
 ├── .nojekyll
+├── assets/
+│   ├── branding/
+│   ├── screenshots/
+│   └── social/
 ├── index.html
 ├── styles.css
 ├── script.js
-└── assets/
-    ├── branding/
-    └── screenshots/
+├── robots.txt
+└── sitemap.xml
 ```
 
 ## Branding
 
-The site uses web-sized derivatives of the approved Groovefolio raster artwork from the Flutter app repository rather than the older hand-built website SVG approximations. The authoritative high-resolution masters stay in the app repository.
+Website branding is derived from the approved master assets in the Groovefolio Flutter repository. Only web-sized derivatives are deployed here; the authoritative high-resolution masters remain with the app.
 
-Primary brand colors:
+Primary colors:
 
 - Warm paper: `#F7F4F0`
 - Ink: `#171513`
@@ -44,23 +50,25 @@ Primary brand colors:
 
 ## Screenshots
 
-The current public screenshots come from a development build. The stylesheet masks the small Flutter DEBUG corner ribbon in the website frames. Replace the images with clean profile/release captures later; the layout does not need to change.
+The site uses clean screenshots from the current Android development build. They are converted to high-quality WebP and include intrinsic dimensions to prevent layout shift.
 
-Screenshots are stored as high-quality WebP and include intrinsic `width`/`height` attributes in `index.html` to reduce page weight and prevent layout shift. Responsive image CSS keeps `height: auto`, so those intrinsic dimensions reserve space without stretching screenshots on narrow screens.
+## Domain and deployment
+
+The GitHub Pages custom domain is configured as:
+
+`groovefolio.app`
+
+The repository uses the GitHub Actions Pages workflow in `.github/workflows/pages.yml`. Pushes to `main` deploy automatically.
+
+The custom domain is configured in **Repository Settings → Pages**. A repository `CNAME` file is not required for this Actions-based deployment.
 
 ## Local preview
-
-From the repository root:
 
 ```bash
 python -m http.server 8080
 ```
 
 Then open `http://localhost:8080`.
-
-## Deployment
-
-Push to `main`. The existing GitHub Actions workflow deploys the repository to GitHub Pages.
 
 ## Discogs notice
 
