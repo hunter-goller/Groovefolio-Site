@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://groovefolio.app/sitemap.xml
