@@ -1327,31 +1327,6 @@ body.motion-ready .roadmap li.motion-visible {
   object-position: center top;
 }
 
-/* Current screenshots were captured from a debug build. Mask only the small
-   Flutter DEBUG corner ribbon; replace with clean release captures later. */
-.real-story-screen::after,
-.flow-phone::after,
-.v4-shot-grid .phone::after,
-.relationship-phone .phone::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 72px;
-  height: 72px;
-  background: #0d0d0c;
-  clip-path: polygon(0 0, 100% 0, 100% 100%);
-  pointer-events: none;
-  z-index: 4;
-}
-
-.v4-shot-grid .phone::after,
-.relationship-phone .phone::after {
-  top: 10px;
-  right: 10px;
-  border-top-right-radius: 29px;
-}
-
 /* Discogs import ----------------------------------------------------------- */
 .import-section {
   padding: 126px 0 118px;
@@ -1692,11 +1667,6 @@ body.motion-ready .roadmap li.motion-visible {
     width: min(330px, 88vw);
     margin-left: 0;
   }
-
-  .real-story-screen::after {
-    width: 39px;
-    height: 39px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2016,22 +1986,7 @@ body.motion-ready .roadmap li.motion-visible {
     height: auto;
     border-radius: 23px;
   }
-
-  /* Mask the debug ribbon in the current development captures. */
-  .story-mobile-shot::after {
-    content: "";
-    position: absolute;
-    top: 7px;
-    right: 7px;
-    width: 36px;
-    height: 36px;
-    background: #0d0d0c;
-    clip-path: polygon(0 0, 100% 0, 100% 100%);
-    border-top-right-radius: 23px;
-    pointer-events: none;
-  }
-
-  /* Discogs import becomes a swipeable three-step flow on mobile. */
+/* Discogs import becomes a swipeable three-step flow on mobile. */
   .import-section,
   .relationship-section {
     padding: 76px 0;
@@ -2336,4 +2291,102 @@ body.motion-ready .roadmap li.motion-visible {
   .brand-wordmark {
     width: 138px;
   }
+}
+
+/* ==========================================================================
+   CURRENT PRODUCT PASS · 2026-08-24
+   ========================================================================== */
+
+.import-flow.import-flow-two {
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  max-width: 920px;
+  margin-inline: auto;
+  margin-top: 72px;
+}
+
+.import-flow-two .flow-phone {
+  width: min(100%, 260px);
+}
+
+.v4-shot-grid {
+  align-items: start;
+}
+
+.v4-shot-grid .shot-card {
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .import-flow.import-flow-two {
+    display: flex;
+    max-width: none;
+    margin-top: 42px;
+    margin-inline: -16px;
+  }
+
+  .import-flow-two .flow-phone {
+    width: min(210px, 60vw);
+  }
+
+  .story-status {
+    gap: 7px;
+  }
+
+  .story-status span {
+    white-space: nowrap;
+  }
+}
+
+
+/* Mobile alignment + onboarding polish */
+.onboarding-section {
+  padding: 104px 0;
+  background: radial-gradient(circle at 85% 20%, rgba(212,98,42,.11), transparent 36%), #f3eee8;
+}
+.onboarding-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 64px;
+  align-items: center;
+}
+.onboarding-copy h2 {
+  margin: 14px 0 24px;
+  font-size: clamp(48px,5vw,74px);
+  line-height: .95;
+  letter-spacing: -.05em;
+}
+.onboarding-copy h2 span { color: var(--orange); }
+.onboarding-copy > p:not(.section-kicker) { color: var(--muted); line-height: 1.7; }
+.onboarding-points { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+.onboarding-points span {
+  padding:9px 13px; border:1px solid rgba(23,21,19,.14); border-radius:999px;
+  background:rgba(255,255,255,.55); color:#625a53; font-size:13px; font-weight:700;
+}
+.onboarding-phones { display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start; }
+.onboarding-card .phone { width:min(100%,300px); margin-inline:auto; }
+.onboarding-card h3 { margin:18px 0 0; font-size:23px; }
+
+@media (max-width: 900px) {
+  .onboarding-grid { grid-template-columns:1fr; }
+}
+
+@media (max-width: 760px) {
+  /* The story screenshot lived inside the text column, so it was centered
+     about 25px too far right. Shift it back to the center of the full step. */
+  .story-mobile-shot { left:-25px; }
+
+  .onboarding-section { padding:76px 0; }
+  .onboarding-copy h2 { font-size:clamp(39px,11vw,48px); }
+  .onboarding-copy > p:not(.section-kicker) { font-size:15px; }
+  .onboarding-phones {
+    display:flex; gap:16px; margin-inline:-16px; padding:0 16px 22px;
+    overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none;
+  }
+  .onboarding-phones::-webkit-scrollbar { display:none; }
+  .onboarding-card { flex:0 0 min(82vw,330px); scroll-snap-align:center; }
+  .onboarding-card .phone { width:100%; }
+}
+
+@media (max-width: 390px) {
+  .story-mobile-shot { left:-20.5px; }
 }
