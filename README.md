@@ -4,24 +4,36 @@ Public marketing/showcase site for **Groovefolio**, a local-first Android app fo
 
 **Live site:** `https://groovefolio.app/`
 
-The website repository is intentionally separate from the Flutter application repository. This repository contains only the public product site and web-optimized marketing assets.
+This repository is intentionally separate from the Flutter app repository. It contains only the public website and web-optimized product assets.
 
-## Current product story
+## 2026 redesign
 
-The current Android development build shown on the site includes:
+The homepage was rebuilt from scratch around the real Groovefolio Android screens rather than incrementally patching the previous layout.
+
+Design goals:
+
+- no sticky-scroll sections that create large empty gaps
+- one consistent phone-frame system for every app screenshot
+- stronger desktop composition without sacrificing mobile
+- fewer repetitive screenshots
+- clearer separation between current features and future roadmap items
+- restrained orange, warm paper, dark listening sections, and vinyl-inspired physical details
+- static HTML/CSS/vanilla JS with progressive enhancement and reduced-motion support
+
+## Current product story shown on the site
 
 - local-first collection management
 - artwork, genres, release metadata, and side-grouped tracklists
-- manual play logging with full-album/side selection and editable date/time
+- manual full-album / Side A / Side B play logging with editable date and time
 - current-year and all-time listening stats
-- Discogs OAuth, exact-release search/autofill, connected collection import, and barcode lookup
+- Discogs exact-release search/autofill, barcode lookup, connected collection import, and tracklists
 - first-run onboarding
 - Collection swipe actions for Edit/Delete
 - local taste-profile and explainable Discover recommendations
 
-NFC device read/write/auto-log flows and deeper listening stories such as Album Wrapped remain future work.
+Future items are clearly labeled in the roadmap, including NFC device flows and deeper yearly/shelf analytics.
 
-## Website structure
+## Structure
 
 ```text
 .
@@ -32,35 +44,12 @@ NFC device read/write/auto-log flows and deeper listening stories such as Album 
 │   ├── screenshots/
 │   └── social/
 ├── index.html
+├── 404.html
 ├── styles.css
 ├── script.js
 ├── robots.txt
 └── sitemap.xml
 ```
-
-## Branding
-
-Website branding is derived from the approved master assets in the Groovefolio Flutter repository. Only web-sized derivatives are deployed here; the authoritative high-resolution masters remain with the app.
-
-Primary colors:
-
-- Warm paper: `#F7F4F0`
-- Ink: `#171513`
-- Groovefolio orange: `#D4622A`
-
-## Screenshots
-
-The site uses clean screenshots from the current Android development build. They are converted to high-quality WebP and include intrinsic dimensions to prevent layout shift.
-
-## Domain and deployment
-
-The GitHub Pages custom domain is configured as:
-
-`groovefolio.app`
-
-The repository uses the GitHub Actions Pages workflow in `.github/workflows/pages.yml`. Pushes to `main` deploy automatically.
-
-The custom domain is configured in **Repository Settings → Pages**. A repository `CNAME` file is not required for this Actions-based deployment.
 
 ## Local preview
 
@@ -68,13 +57,14 @@ The custom domain is configured in **Repository Settings → Pages**. A reposito
 python -m http.server 8080
 ```
 
-Then open `http://localhost:8080`.
+Open `http://localhost:8080`.
+
+## Domain / deployment
+
+GitHub Pages custom domain: `groovefolio.app`
+
+Pushes to `main` deploy through `.github/workflows/pages.yml`.
 
 ## Discogs notice
 
 Groovefolio is not affiliated with Discogs. Discogs is a trademark of Zink Media, LLC.
-
-
-## Visual direction
-
-The current homepage uses the real Collection screen in the hero, a restrained physical-vinyl visual language, alternating warm-paper/dark sections, and mobile-native swipe galleries. The homepage deliberately avoids adding more sections when existing product screens can tell the story.

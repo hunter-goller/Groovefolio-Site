@@ -3,30 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#F7F4F0">
-  <meta name="description" content="Groovefolio is a local-first Android app for vinyl collectors: organize records, import from Discogs, log every spin, explore listening stats, and get explainable recommendations from your own shelf.">
-  <link rel="canonical" href="https://groovefolio.app/">
-  <meta property="og:title" content="Groovefolio — Your collection has a story.">
-  <meta property="og:description" content="Organize your vinyl, log every spin, understand your listening, and rediscover records already waiting on your shelf.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://groovefolio.app/">
-  <meta name="twitter:card" content="summary_large_image">
-
+  <meta name="theme-color" content="#f4efe8">
+  <meta name="description" content="Groovefolio is a local-first Android app for vinyl collectors: organize records, import from Discogs, log every spin, explore listening stats, and rediscover your own shelf.">
   <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://groovefolio.app/">
+
+  <meta property="og:type" content="website">
   <meta property="og:site_name" content="Groovefolio">
   <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Groovefolio — Your record shelf, remembered.">
+  <meta property="og:description" content="Organize your vinyl, log every spin, understand your listening, and rediscover records already waiting on your shelf.">
+  <meta property="og:url" content="https://groovefolio.app/">
   <meta property="og:image" content="https://groovefolio.app/assets/social/groovefolio-social.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Groovefolio wordmark beside the app's vinyl collection screen">
-  <meta name="twitter:title" content="Groovefolio — Your collection has a story.">
-  <meta name="twitter:description" content="Organize your vinyl, log every spin, understand your listening, and rediscover records already waiting on your shelf.">
+  <meta property="og:image:alt" content="Groovefolio product preview">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Groovefolio — Your record shelf, remembered.">
+  <meta name="twitter:description" content="Collection, listening history, stats, and discovery for people who actually play their records.">
   <meta name="twitter:image" content="https://groovefolio.app/assets/social/groovefolio-social.png">
-  <meta name="twitter:image:alt" content="Groovefolio wordmark beside the app's vinyl collection screen">
-  <title>Groovefolio — Your collection has a story.</title>
+
+  <title>Groovefolio — Your record shelf, remembered.</title>
   <link rel="icon" href="assets/branding/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/branding/apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css?rev=20260824-4">
+  <link rel="stylesheet" href="styles.css?rev=20260824-redesign1">
 
   <script type="application/ld+json">
   {
@@ -41,329 +42,447 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
-  <header class="site-header">
-    <div class="shell nav">
+  <header class="site-header" data-header>
+    <div class="shell nav-shell">
       <a class="brand" href="#top" aria-label="Groovefolio home">
-        <img class="brand-wordmark" src="assets/branding/groovefolio-wordmark.png" alt="Groovefolio" width="772" height="178">
+        <img src="assets/branding/groovefolio-wordmark.png" alt="Groovefolio" width="772" height="178">
       </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">Open navigation</span><i></i><i></i></button>
-      <nav id="site-nav" class="nav-links" aria-label="Primary navigation">
-        <a href="#features">Features</a><a href="#onboarding">Getting started</a><a href="#story">How it works</a><a href="#showcase">Screenshots</a><a href="#roadmap">Roadmap</a><a href="#privacy">Local-first</a>
-        <a class="button button-small" href="#showcase">Explore Features</a>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
+        <span class="sr-only">Toggle navigation</span>
+        <i></i><i></i>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation" data-menu>
+        <a href="#features">Features</a>
+        <a href="#flow">How it works</a>
+        <a href="#screens">Screens</a>
+        <a href="#roadmap">Roadmap</a>
+        <a class="nav-cta" href="#screens">See the app</a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero shell">
-      <div class="hero-copy">
-        <div class="eyebrow"><span></span> Built for people who actually play their records</div>
-        <h1>Your collection<br>has a <em>story.</em></h1>
-        <p class="lede">Groovefolio brings your vinyl collection, listening history, stats, and discovery into one clean, local-first Android app.</p>
-        <div class="hero-actions">
-          <a class="button" href="#showcase">Explore Groovefolio</a>
-          <a class="text-link" href="#roadmap">View the roadmap <span>↓</span></a>
+  <main id="main">
+    <section id="top" class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span></span> Built for people who play their records</p>
+          <h1>Your record shelf,<br><em>remembered.</em></h1>
+          <p class="hero-lede">Groovefolio connects what you own with what you actually listen to—collection, play history, stats, Discogs metadata, and explainable discovery in one local-first Android app.</p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#flow">See how it works</a>
+            <a class="button button-quiet" href="#roadmap">View roadmap <span aria-hidden="true">↘</span></a>
+          </div>
+
+          <ul class="hero-traits" aria-label="Product highlights">
+            <li><strong>Local-first</strong><span>Your collection stays on-device.</span></li>
+            <li><strong>No account required</strong><span>Discogs connection is optional.</span></li>
+            <li><strong>Android first</strong><span>Built around the physical shelf.</span></li>
+          </ul>
         </div>
-        <div class="hero-meta"><span>Android first</span><span>Local-first</span><span>No Groovefolio account required</span></div>
+
+        <div class="hero-art reveal" aria-label="Groovefolio app screens">
+          <div class="hero-record" aria-hidden="true"><span></span></div>
+          <div class="hero-halo" aria-hidden="true"></div>
+
+          <figure class="device device-hero device-main">
+            <span class="device-speaker" aria-hidden="true"></span>
+            <img src="assets/screenshots/collection.webp" alt="Groovefolio collection showing album artwork, genres, recent listening, and play counts" width="900" height="1755" fetchpriority="high" decoding="async">
+          </figure>
+
+          <figure class="device device-hero device-back device-discover">
+            <span class="device-speaker" aria-hidden="true"></span>
+            <img src="assets/screenshots/discover.webp" alt="Groovefolio personalized Discover screen" width="900" height="1755" decoding="async">
+          </figure>
+
+          <figure class="device device-hero device-back device-stats">
+            <span class="device-speaker" aria-hidden="true"></span>
+            <img src="assets/screenshots/stats-year.webp" alt="Groovefolio yearly listening statistics" width="900" height="1755" decoding="async">
+          </figure>
+
+          <div class="floating-note note-one"><span>13 logged plays</span><strong>Taste profile built locally</strong></div>
+          <div class="floating-note note-two"><span>16 records</span><strong>One shelf. A living history.</strong></div>
+        </div>
       </div>
+    </section>
 
-      <div class="hero-visual hero-product" aria-label="Groovefolio collection preview">
-        <div class="hero-vinyl" aria-hidden="true"><span></span></div>
-        <div class="hero-sleeve" aria-hidden="true"></div>
+    <section class="proof-strip" aria-label="Groovefolio capabilities">
+      <div class="shell proof-grid reveal">
+        <div><span>01</span><strong>Collection</strong><p>Organize the shelf you own.</p></div>
+        <div><span>02</span><strong>Listening</strong><p>Log every spin or side.</p></div>
+        <div><span>03</span><strong>Stats</strong><p>See patterns over time.</p></div>
+        <div><span>04</span><strong>Discover</strong><p>Rediscover your own records.</p></div>
+      </div>
+    </section>
 
-        <div class="hero-phone phone">
-          <div class="phone-speaker"></div>
-          <img src="assets/screenshots/collection.webp"
-               alt="Groovefolio collection showing album artwork, genres, listening recency, and play counts"
-               width="900" height="1755" decoding="async" fetchpriority="high">
+    <section id="features" class="section section-paper">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div>
+            <p class="kicker">The whole relationship with your collection</p>
+            <h2>More than an inventory.<br><span>More useful every time you listen.</span></h2>
+          </div>
+          <p>Groovefolio is designed around the loop vinyl collectors already live in: add a record, play it, remember it, learn from it, and find the next one worth pulling from the shelf.</p>
         </div>
 
-        <div class="hero-float hero-float-top">
-          <span>LOCAL-FIRST</span>
-          <strong>No Groovefolio account required</strong>
-        </div>
+        <div class="feature-bento">
+          <article class="feature-card feature-card-large reveal">
+            <div class="feature-copy">
+              <p class="feature-number">01 / COLLECTION</p>
+              <h3>Your shelf, without spreadsheet energy.</h3>
+              <p>Artwork, genres, release details, tracklists, recent listening, search, filters, and play counts stay together in a collection that still feels like records—not rows.</p>
+              <div class="pill-row"><span>Search</span><span>Genre filters</span><span>Most played</span><span>Swipe actions</span></div>
+            </div>
+            <div class="feature-device-wrap">
+              <figure class="device device-medium">
+                <span class="device-speaker" aria-hidden="true"></span>
+                <img src="assets/screenshots/collection.webp" alt="Groovefolio Collection screen" width="900" height="1755" loading="lazy" decoding="async">
+              </figure>
+            </div>
+          </article>
 
-        <div class="hero-float hero-float-bottom">
-          <span>YOUR LISTENING</span>
-          <strong>Collection + plays + discovery</strong>
+          <article class="feature-card feature-card-dark reveal">
+            <div class="feature-copy">
+              <p class="feature-number">02 / LISTENING</p>
+              <h3>Log the spin that actually happened.</h3>
+              <p>Choose the record, date, time, and whether you heard the full album or a single side.</p>
+            </div>
+            <div class="mini-ui">
+              <span class="mini-dot"></span>
+              <div><b>Full album</b><small>Today · 7:06 PM</small></div>
+              <strong>Save play</strong>
+            </div>
+          </article>
+
+          <article class="feature-card feature-card-orange reveal">
+            <div class="feature-copy">
+              <p class="feature-number">03 / STATS</p>
+              <h3>Turn listening into context.</h3>
+              <p>Current year or all time, monthly and yearly activity, most-played records, genre patterns, first vinyl, and weekly pace.</p>
+            </div>
+            <div class="stat-visual" aria-hidden="true">
+              <div><span>16</span><small>records</small></div>
+              <div><span>13</span><small>plays</small></div>
+              <div class="spark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+          </article>
+
+          <article class="feature-card feature-card-wide reveal">
+            <div class="feature-copy">
+              <p class="feature-number">04 / DISCOGS</p>
+              <h3>Find the pressing, not just the album.</h3>
+              <p>Search an exact vinyl release, scan a barcode, autofill editable metadata and tracklists, or review a connected Discogs collection before bringing it onto the device.</p>
+              <div class="pill-row"><span>Exact releases</span><span>Barcode</span><span>Tracklists</span><span>Collection import</span></div>
+            </div>
+            <div class="discogs-steps" aria-label="Discogs workflow">
+              <span><b>1</b> Search or scan</span><i>→</i><span><b>2</b> Review metadata</span><i>→</i><span><b>3</b> Save locally</span>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="statement"><div class="shell statement-grid"><p class="section-kicker">A record collection should be more than a list.</p><h2>Know what you own.<br>Remember what you played.<br><span>Discover what comes next.</span></h2></div></section>
-
-
-    <section id="features" class="section shell">
-      <div class="section-heading">
-        <div>
-          <p class="section-kicker">What Groovefolio does</p>
-          <h2>Everything around the music,<br>without getting in the way of it.</h2>
+    <section id="flow" class="section section-ink">
+      <div class="shell">
+        <div class="section-heading section-heading-dark reveal">
+          <div>
+            <p class="kicker">One collection. A living history.</p>
+            <h2>From shelf to spin<br><span>to the next record.</span></h2>
+          </div>
+          <p>The product flow is simple on purpose. There is no giant dashboard to maintain—just a few screens that stay connected to the physical collection.</p>
         </div>
-        <p>Groovefolio starts with the physical collection, then layers in fast logging, listening context, exact-release metadata, and recommendations built from your own shelf.</p>
-      </div>
-      <div class="feature-grid">
-        <article class="feature feature-wide">
-          <div class="feature-icon">01</div>
-          <div><p class="feature-label">COLLECTION</p><h3>Your shelves, organized.</h3><p>Add and edit records, attach artwork, keep tracklists and release details together, search the shelf, filter by genre, and sort by what you actually play.</p></div>
-          <div class="mini-stack"><div><span>Ballads Of The Broken</span><b>4 plays</b></div><div><span>2001: A Space Odyssey</span><b>4 plays</b></div><div><span>Cristo Redentor</span><b>3 plays</b></div></div>
-        </article>
-        <article class="feature">
-          <div class="feature-icon">02</div><p class="feature-label">LISTENING</p><h3>Log every spin.</h3><p>Choose the album or side, adjust the date and time when needed, and build a real listening history instead of guessing what has been in rotation.</p>
-          <div class="play-chip"><span class="play-dot">▶</span> Log play <small>Full album or side</small></div>
-        </article>
-        <article class="feature dark-card">
-          <div class="feature-icon">03</div><p class="feature-label">STATS</p><h3>See your habits.</h3><p>Explore current-year and all-time activity, most-played records, genre listening, yearly history, weekly pace, and the shape of your collection over time.</p>
-          <div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-        </article>
-        <article class="feature">
-          <div class="feature-icon">04</div><p class="feature-label">DISCOGS</p><h3>Find the pressing, not just the album.</h3><p>Search exact vinyl releases, scan a barcode, autofill editable metadata and tracklists, or review a connected Discogs collection before importing it locally.</p>
-          <div class="discogs-pill"><span>◉</span> Search · barcode · import</div>
-        </article>
-        <article class="feature accent-card">
-          <div class="feature-icon">05</div><p class="feature-label">DISCOVER</p><h3>Rediscover what you already own.</h3><p>Groovefolio builds a taste profile from local play history and surfaces explainable picks by recency, genre, and favorite era—without needing a Groovefolio account.</p>
-        </article>
+
+        <div class="flow-list">
+          <article class="flow-row reveal">
+            <div class="flow-index">01</div>
+            <div class="flow-copy">
+              <p class="flow-label">BUILD THE SHELF</p>
+              <h3>Add a record your way.</h3>
+              <p>Start manual, search Discogs for the exact pressing, or scan the jacket barcode. Imported metadata stays editable before the record joins your local collection.</p>
+              <div class="flow-tags"><span>Manual entry</span><span>Discogs search</span><span>Barcode scan</span></div>
+            </div>
+            <figure class="device device-flow">
+              <span class="device-speaker" aria-hidden="true"></span>
+              <img src="assets/screenshots/add-record.webp" alt="Groovefolio Add Record screen" width="900" height="1755" loading="lazy" decoding="async">
+            </figure>
+          </article>
+
+          <article class="flow-row flow-row-reverse reveal">
+            <div class="flow-index">02</div>
+            <div class="flow-copy">
+              <p class="flow-label">REMEMBER THE SPIN</p>
+              <h3>Log it in seconds.</h3>
+              <p>Select the album, choose the date and time, then save the full record or just Side A or Side B. That single action powers everything that comes after.</p>
+              <div class="flow-tags"><span>Date + time</span><span>Full album</span><span>Side A / B</span></div>
+            </div>
+            <figure class="device device-flow">
+              <span class="device-speaker" aria-hidden="true"></span>
+              <img src="assets/screenshots/log-play.webp" alt="Groovefolio Log a Play screen" width="900" height="1755" loading="lazy" decoding="async">
+            </figure>
+          </article>
+
+          <article class="flow-row reveal">
+            <div class="flow-index">03</div>
+            <div class="flow-copy">
+              <p class="flow-label">SEE THE PATTERNS</p>
+              <h3>Your listening becomes visible.</h3>
+              <p>Move between current-year and all-time views to see how often you play the collection, which records dominate, and which genres keep showing up.</p>
+              <div class="flow-tags"><span>Year / all time</span><span>Genre breakdown</span><span>Most played</span></div>
+            </div>
+            <figure class="device device-flow">
+              <span class="device-speaker" aria-hidden="true"></span>
+              <img src="assets/screenshots/stats-year.webp" alt="Groovefolio current-year statistics screen" width="900" height="1755" loading="lazy" decoding="async">
+            </figure>
+          </article>
+
+          <article class="flow-row flow-row-reverse reveal">
+            <div class="flow-index">04</div>
+            <div class="flow-copy">
+              <p class="flow-label">FIND THE NEXT SPIN</p>
+              <h3>Recommendations from your shelf.</h3>
+              <p>Discover uses local collection and play-history signals to surface rediscovery picks, genre matches, and favorite-era records—with a reason for each recommendation.</p>
+              <div class="flow-tags"><span>Rediscovery</span><span>Genre taste</span><span>Favorite era</span></div>
+            </div>
+            <figure class="device device-flow">
+              <span class="device-speaker" aria-hidden="true"></span>
+              <img src="assets/screenshots/discover.webp" alt="Groovefolio Discover screen" width="900" height="1755" loading="lazy" decoding="async">
+            </figure>
+          </article>
+        </div>
       </div>
     </section>
 
-
-
-    <section id="onboarding" class="onboarding-section">
+    <section class="section onboarding-section">
       <div class="shell onboarding-grid">
-        <div class="onboarding-copy">
-          <p class="section-kicker">First run</p>
-          <h2>Learn Groovefolio<br><span>as you go.</span></h2>
-          <p>The built-in onboarding walks through the collection, adding records, logging plays, stats, and quick album actions before you need to figure anything out on your own.</p>
-          <div class="onboarding-points">
-            <span>Collection</span><span>Add records</span><span>Log plays</span><span>Stats</span><span>Swipe actions</span>
+        <div class="onboarding-copy reveal">
+          <p class="kicker">First run</p>
+          <h2>Learn Groovefolio<br><span>inside Groovefolio.</span></h2>
+          <p>A short, built-in walkthrough introduces the collection, adding records, logging plays, stats, and the gestures used to manage albums. No separate tutorial page required.</p>
+          <div class="numbered-list">
+            <div><span>01</span><p><b>Understand the idea</b><small>Your record shelf stays local and becomes more useful as you play it.</small></p></div>
+            <div><span>02</span><p><b>Learn the actions</b><small>Add, log, edit, delete, and navigate the collection without hunting for controls.</small></p></div>
           </div>
         </div>
-        <div class="onboarding-phones">
-          <article class="onboarding-card">
-            <p class="shot-label">01 / WELCOME</p>
-            <div class="phone"><div class="phone-speaker"></div>
-              <img src="assets/screenshots/onboarding-welcome.webp" alt="Groovefolio onboarding welcome screen" width="900" height="1755" loading="lazy" decoding="async">
-            </div>
-            <h3>A quick introduction.</h3>
-          </article>
-          <article class="onboarding-card">
-            <p class="shot-label">02 / GESTURES</p>
-            <div class="phone"><div class="phone-speaker"></div>
-              <img src="assets/screenshots/onboarding-swipe.webp" alt="Groovefolio onboarding explaining album swipe actions" width="900" height="1755" loading="lazy" decoding="async">
-            </div>
-            <h3>Even the gestures are explained.</h3>
-          </article>
+
+        <div class="onboarding-stack reveal">
+          <figure class="device device-onboarding onboarding-one">
+            <span class="device-speaker" aria-hidden="true"></span>
+            <img src="assets/screenshots/onboarding-welcome.webp" alt="Groovefolio onboarding welcome screen" width="900" height="1755" loading="lazy" decoding="async">
+          </figure>
+          <figure class="device device-onboarding onboarding-two">
+            <span class="device-speaker" aria-hidden="true"></span>
+            <img src="assets/screenshots/onboarding-swipe.webp" alt="Groovefolio onboarding explaining swipe actions" width="900" height="1755" loading="lazy" decoding="async">
+          </figure>
         </div>
       </div>
     </section>
 
-
-    <section id="story" class="product-story">
-      <div class="shell story-heading">
-        <p class="section-kicker">One collection. A living history.</p>
-        <h2>From shelf to spin<br>to the next record.</h2>
-        <p>The core Groovefolio loop, shown with clean screens from the current Android development build.</p>
-      </div>
-
-      <div class="shell story-layout">
-        <div class="story-steps" aria-label="Groovefolio product flow">
-
-          <article class="story-step is-active" data-story="collection">
-            <div class="story-number">01</div>
-            <div class="story-copy">
-              <div class="story-status"><span>CURRENT BUILD</span> Collection</div>
-              <h3>Build the shelf.</h3>
-              <p>Keep artwork, genres, release information, tracklists, recent listening, and play counts together in one collection.</p>
-            </div>
-            <div class="story-mobile-shot">
-              <img src="assets/screenshots/collection.webp" alt="Groovefolio collection screen with album artwork, genres, and play counts" loading="lazy" width="900" height="1755" decoding="async">
-            </div>
-          </article>
-
-          <article class="story-step" data-story="plays">
-            <div class="story-number">02</div>
-            <div class="story-copy">
-              <div class="story-status"><span>CURRENT BUILD</span> Listening</div>
-              <h3>Remember every spin.</h3>
-              <p>Pick a record, choose the full album or a side, and save the play with the date and time that it happened.</p>
-            </div>
-            <div class="story-mobile-shot">
-              <img src="assets/screenshots/log-play.webp" alt="Groovefolio log play screen with record, date, time, and side selection" loading="lazy" width="900" height="1755" decoding="async">
-            </div>
-          </article>
-
-          <article class="story-step" data-story="stats">
-            <div class="story-number">03</div>
-            <div class="story-copy">
-              <div class="story-status"><span>CURRENT BUILD</span> Stats</div>
-              <h3>See the patterns.</h3>
-              <p>Follow yearly activity, total plays, listening pace, favorite records, genre patterns, and long-term history built from local plays.</p>
-            </div>
-            <div class="story-mobile-shot">
-              <img src="assets/screenshots/stats-year.webp" alt="Groovefolio current-year statistics dashboard" loading="lazy" width="900" height="1755" decoding="async">
-            </div>
-          </article>
-
-          <article class="story-step" data-story="discover">
-            <div class="story-number">04</div>
-            <div class="story-copy">
-              <div class="story-status"><span>CURRENT BUILD</span> Discover</div>
-              <h3>Find the next spin.</h3>
-              <p>Use your own shelf and play history to surface rediscovery picks, genre matches, favorite-era records, and a reason behind every recommendation.</p>
-            </div>
-            <div class="story-mobile-shot">
-              <img src="assets/screenshots/discover.webp" alt="Groovefolio personalized Discover screen with taste profile and recommendations" loading="lazy" width="900" height="1755" decoding="async">
-            </div>
-          </article>
-
+    <section class="section discogs-section">
+      <div class="shell discogs-grid">
+        <div class="discogs-copy reveal">
+          <p class="kicker">Already have a Discogs collection?</p>
+          <h2>Bring it over.<br><span>Keep it yours.</span></h2>
+          <p>Connect Discogs only when you want it. Groovefolio reviews what it finds before importing selected vinyl releases into the local collection.</p>
+          <ol class="import-list">
+            <li><span>1</span><div><b>Review before importing</b><small>See what is new, what may already exist locally, and what will be skipped.</small></div></li>
+            <li><span>2</span><div><b>Save the useful details</b><small>Artwork, genres, exact release identity, and tracklists come with the record.</small></div></li>
+            <li><span>3</span><div><b>Go back to your collection</b><small>Once imported, the data lives with the rest of Groovefolio on-device.</small></div></li>
+          </ol>
+          <p class="discogs-note">Groovefolio is not affiliated with Discogs.</p>
         </div>
 
-        <div class="story-phone-wrap">
-          <div class="story-phone-glow" aria-hidden="true"></div>
-          <div class="story-phone" aria-live="polite">
-            <div class="story-phone-camera"></div>
-            <div class="story-phone-screen">
-              <div class="story-screen real-story-screen is-active" data-screen="collection"><img src="assets/screenshots/collection.webp" alt="Groovefolio collection screen" width="900" height="1755" loading="lazy" decoding="async"></div>
-              <div class="story-screen real-story-screen" data-screen="plays"><img src="assets/screenshots/log-play.webp" alt="Groovefolio log play screen" width="900" height="1755" loading="lazy" decoding="async"></div>
-              <div class="story-screen real-story-screen" data-screen="stats"><img src="assets/screenshots/stats-year.webp" alt="Groovefolio current-year stats" width="900" height="1755" loading="lazy" decoding="async"></div>
-              <div class="story-screen real-story-screen" data-screen="discover"><img src="assets/screenshots/discover.webp" alt="Groovefolio personalized Discover recommendations" width="900" height="1755" loading="lazy" decoding="async"></div>
-            </div>
-          </div>
-          <p class="story-phone-note">Real Groovefolio screens · current Android development build</p>
+        <div class="import-devices reveal">
+          <figure class="device device-import import-review">
+            <span class="device-speaker" aria-hidden="true"></span>
+            <img src="assets/screenshots/discogs-import-review.webp" alt="Groovefolio Discogs import review screen" width="900" height="1755" loading="lazy" decoding="async">
+          </figure>
+          <figure class="device device-import import-done">
+            <span class="device-speaker" aria-hidden="true"></span>
+            <img src="assets/screenshots/discogs-import-complete.webp" alt="Groovefolio Discogs import complete screen" width="900" height="1755" loading="lazy" decoding="async">
+          </figure>
+          <div class="import-arrow" aria-hidden="true">→</div>
         </div>
       </div>
     </section>
 
-
-    <section id="discogs-import" class="import-section">
-      <div class="shell import-heading">
-        <div><p class="section-kicker">Already have a Discogs collection?</p><h2>Bring the shelf over.<br><span>Keep it local.</span></h2></div>
-        <p>Connect Discogs, review the vinyl releases Groovefolio found, avoid exact duplicates, and import selected records—including artwork, genres, release identity, and tracklists—into the on-device collection.</p>
-      </div>
-      <div class="shell import-flow import-flow-two" data-import-flow>
-        <article class="import-step is-current" data-import-step="0"><div class="flow-meta"><span>01</span><strong>Review</strong></div><div class="flow-phone"><img src="assets/screenshots/discogs-import-review.webp" alt="Groovefolio Discogs collection import review" width="900" height="1755" loading="lazy" decoding="async"></div><p>See what is new and what is already represented before anything is written.</p></article>
-        <div class="flow-arrow" aria-hidden="true">→</div>
-        <article class="import-step" data-import-step="1"><div class="flow-meta"><span>02</span><strong>Import complete</strong></div><div class="flow-phone"><img src="assets/screenshots/discogs-import-complete.webp" alt="Groovefolio successful Discogs collection import" width="900" height="1755" loading="lazy" decoding="async"></div><p>Jump into the populated local collection and start listening.</p></article>
-      </div>
-      <div class="shell import-progress" aria-hidden="true"><i class="is-active"></i><i></i></div>
-      <p class="shell import-note">Real development workflow. Groovefolio is not affiliated with Discogs.</p>
-    </section>
-
-
-    <section class="relationship-section">
-      <div class="shell relationship-grid">
-        <div class="relationship-copy">
-          <p class="section-kicker">The difference</p>
+    <section class="difference-section">
+      <div class="shell difference-grid">
+        <div class="difference-copy reveal">
+          <p class="kicker">The difference</p>
           <h2>Discogs tells you what you own.<br><span>Groovefolio tells you how you listen.</span></h2>
           <p>Ownership is the starting point. Groovefolio keeps plays beside the collection, builds a local taste profile, and turns those signals into stats and explainable recommendations from records you already own.</p>
-          <div class="relationship-pills"><span>Play counts</span><span>Recent listening</span><span>Most played</span><span>Genre taste</span><span>Favorite era</span><span>Explainable picks</span></div>
+          <div class="taste-chips"><span>Rock · 9</span><span>Lo-Fi · 7</span><span>Shoegaze · 7</span><span>Slowcore · 7</span></div>
         </div>
-        <div class="relationship-phone"><div class="phone"><div class="phone-speaker"></div><img src="assets/screenshots/discover-era.webp" alt="Groovefolio recommendations from the listener's favorite era" width="900" height="1755" loading="lazy" decoding="async"></div></div>
+        <div class="difference-art reveal">
+          <div class="orange-orbit" aria-hidden="true"></div>
+          <figure class="device device-difference">
+            <span class="device-speaker" aria-hidden="true"></span>
+            <img src="assets/screenshots/discover-era.webp" alt="Groovefolio recommendations from a listener's favorite era" width="900" height="1755" loading="lazy" decoding="async">
+          </figure>
+        </div>
       </div>
     </section>
 
-
-
-    <section id="showcase" class="showcase-section">
+    <section id="screens" class="section screens-section">
       <div class="shell">
-        <div class="section-heading light-heading">
+        <div class="section-heading section-heading-dark reveal">
           <div>
-            <p class="section-kicker">In the app</p>
-            <h2>The details make it<br>feel like your collection.</h2>
+            <p class="kicker">Inside the app</p>
+            <h2>Small details that make<br><span>the collection feel alive.</span></h2>
           </div>
-          <p>The main product story covers the everyday loop. These screens show the deeper touches that make Groovefolio useful once the shelf starts growing.</p>
+          <p>Real Android development screens—not conceptual mockups. The site uses the same visual language and orange accent as Groovefolio itself.</p>
         </div>
 
-        <div class="v4-shot-grid">
-<article class="shot-card">
-          <p class="shot-label">01 / ALBUM DETAIL</p>
-          <div class="phone"><div class="phone-speaker"></div>
-            <img src="assets/screenshots/album-details.webp" alt="Groovefolio album details with artwork, metadata, and listening information" loading="lazy" width="900" height="1755" decoding="async">
-          </div>
-          <h3>Everything about the record, together.</h3>
-          <p>Artwork, exact-release metadata, genres, tracklist, and listening history live on one screen.</p>
-        </article>
-<article class="shot-card">
-          <p class="shot-label">02 / TRACKLIST</p>
-          <div class="phone"><div class="phone-speaker"></div>
-            <img src="assets/screenshots/tracklist.webp" alt="Groovefolio album detail showing a tracklist grouped by vinyl side" loading="lazy" width="900" height="1755" decoding="async">
-          </div>
-          <h3>Tracklists that understand vinyl.</h3>
-          <p>Exact-release tracks stay grouped by physical side instead of becoming one generic song list.</p>
-        </article>
-<article class="shot-card">
-          <p class="shot-label">03 / ALL-TIME STATS</p>
-          <div class="phone"><div class="phone-speaker"></div>
-            <img src="assets/screenshots/stats-all-time.webp" alt="Groovefolio all-time listening statistics" loading="lazy" width="900" height="1755" decoding="async">
-          </div>
-          <h3>Zoom out on your listening.</h3>
-          <p>Compare years and see how the collection and your listening habits change over time.</p>
-        </article>
-<article class="shot-card">
-          <p class="shot-label">04 / DISCOVERY</p>
-          <div class="phone"><div class="phone-speaker"></div>
-            <img src="assets/screenshots/discover-era.webp" alt="Groovefolio recommendations based on a listener's favorite era" loading="lazy" width="900" height="1755" decoding="async">
-          </div>
-          <h3>Recommendations with a reason.</h3>
-          <p>Taste-profile signals turn your own shelf and play history into explainable rediscovery picks.</p>
-        </article>
-<article class="shot-card">
-          <p class="shot-label">05 / QUICK ACTIONS</p>
-          <div class="phone"><div class="phone-speaker"></div>
-            <img src="assets/screenshots/swipe-actions.webp" alt="Groovefolio collection row revealing Edit and Delete swipe actions" loading="lazy" width="900" height="1755" decoding="async">
-          </div>
-          <h3>Fast when you know what you want.</h3>
-          <p>Swipe for quick Edit and Delete actions while a normal tap still opens the full album.</p>
-        </article>
-<article class="shot-card">
-          <p class="shot-label">06 / ADD RECORD</p>
-          <div class="phone"><div class="phone-speaker"></div>
-            <img src="assets/screenshots/add-record.webp" alt="Groovefolio Add Record screen with Discogs autofill and barcode scan" loading="lazy" width="900" height="1755" decoding="async">
-          </div>
-          <h3>Manual, Discogs, or barcode.</h3>
-          <p>Add a record your way, then keep the imported metadata editable before it joins the shelf.</p>
-        </article>
-        </div>
+        <div class="screen-grid">
+          <article class="screen-card reveal">
+            <p class="screen-index">01 / ALBUM DETAILS</p>
+            <figure class="device device-gallery"><span class="device-speaker" aria-hidden="true"></span><img src="assets/screenshots/album-details.webp" alt="Groovefolio Album Details screen" width="900" height="1755" loading="lazy" decoding="async"></figure>
+            <h3>The record and its history stay together.</h3>
+            <p>Artwork, exact-release metadata, genres, tracklist, and listening context in one place.</p>
+          </article>
 
-        <div class="screenshot-note">
-          <span>Current development build</span>
-          <p>Clean Android captures from the app as it moves toward its first public Google Play release.</p>
+          <article class="screen-card reveal">
+            <p class="screen-index">02 / TRACKLIST</p>
+            <figure class="device device-gallery"><span class="device-speaker" aria-hidden="true"></span><img src="assets/screenshots/tracklist.webp" alt="Groovefolio tracklist grouped by vinyl side" width="900" height="1755" loading="lazy" decoding="async"></figure>
+            <h3>Tracklists that understand sides.</h3>
+            <p>Exact-release tracks stay grouped around the physical vinyl instead of becoming one generic song list.</p>
+          </article>
+
+          <article class="screen-card reveal">
+            <p class="screen-index">03 / ALL-TIME STATS</p>
+            <figure class="device device-gallery"><span class="device-speaker" aria-hidden="true"></span><img src="assets/screenshots/stats-all-time.webp" alt="Groovefolio all-time statistics screen" width="900" height="1755" loading="lazy" decoding="async"></figure>
+            <h3>Zoom out without losing the story.</h3>
+            <p>Compare years and see how your collection and listening habits change over time.</p>
+          </article>
+
+          <article class="screen-card reveal">
+            <p class="screen-index">04 / QUICK ACTIONS</p>
+            <figure class="device device-gallery"><span class="device-speaker" aria-hidden="true"></span><img src="assets/screenshots/swipe-actions.webp" alt="Groovefolio swipe actions for Edit and Delete" width="900" height="1755" loading="lazy" decoding="async"></figure>
+            <h3>Fast when you know what you want.</h3>
+            <p>Swipe for Edit and Delete while a normal tap still opens the full record.</p>
+          </article>
+
+          <article class="screen-card reveal">
+            <p class="screen-index">05 / ADD RECORD</p>
+            <figure class="device device-gallery"><span class="device-speaker" aria-hidden="true"></span><img src="assets/screenshots/add-record.webp" alt="Groovefolio Add Record screen with Discogs and barcode actions" width="900" height="1755" loading="lazy" decoding="async"></figure>
+            <h3>Manual, Discogs, or barcode.</h3>
+            <p>Add the record your way and keep imported metadata editable before it joins the shelf.</p>
+          </article>
+
+          <article class="screen-card reveal">
+            <p class="screen-index">06 / DISCOVER</p>
+            <figure class="device device-gallery"><span class="device-speaker" aria-hidden="true"></span><img src="assets/screenshots/discover-era.webp" alt="Groovefolio favorite-era recommendation screen" width="900" height="1755" loading="lazy" decoding="async"></figure>
+            <h3>Recommendations with a reason.</h3>
+            <p>Genre and era signals make it clear why a record is being surfaced from your own shelf.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="coverage-section">
-      <div class="shell coverage-grid">
-        <div class="coverage-copy"><p class="section-kicker">Future Groovefolio analytics</p><h2>Not just how many records you own.<br><span>How much of the shelf you actually use.</span></h2><p>Current play history already powers stats and recommendations. The same local data can eventually support deeper collection-utilization metrics and yearly listening stories.</p><div class="coverage-pills"><span>Never played</span><span>Dormant records</span><span>Rotation depth</span><span>Collection vs listening</span></div></div>
-        <div class="coverage-card motion-reveal" data-coverage-card><div class="coverage-card-top"><div><span class="coverage-label">SHELF COVERAGE · CONCEPT</span><strong><span data-coverage-number>0</span>%</strong></div><span class="coverage-period">Last 12 months</span></div><div class="record-shelf" aria-label="Illustrative shelf coverage visualization"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="coverage-breakdown"><div><span>Played this year</span><strong>102</strong></div><div><span>Not yet in rotation</span><strong>48</strong></div><div><span>Collection</span><strong>150</strong></div></div><p>Illustrative future metric—not current user data.</p></div>
+    <section class="section local-section">
+      <div class="shell local-grid">
+        <div class="local-mark reveal" aria-hidden="true">
+          <div class="local-record"><span>ON<br>DEVICE</span></div>
+        </div>
+        <div class="local-copy reveal">
+          <p class="kicker">Local-first by design</p>
+          <h2>Your collection works<br><span>without a Groovefolio account.</span></h2>
+          <p>The core shelf, artwork paths, play history, stats, and recommendation inputs live on the device. Discogs is an optional metadata connection—not the place Groovefolio stores your listening life.</p>
+          <div class="local-facts">
+            <div><b>SQLite</b><span>Local collection + plays</span></div>
+            <div><b>Optional OAuth</b><span>Discogs connection when you want it</span></div>
+            <div><b>Offline core</b><span>Your existing collection remains usable</span></div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="privacy" class="section shell local-first">
-      <div class="local-mark"><div class="local-disc"></div><span>ON DEVICE</span></div>
-      <div class="local-copy"><p class="section-kicker">Local-first by design</p><h2>Your collection should still exist when the internet doesn't.</h2><p>Groovefolio's core collection and listening data live locally on your device. A Groovefolio account is not required for the core app, and online integrations such as Discogs are optional enhancements rather than the foundation.</p><div class="local-points"><span>Offline collection access</span><span>No mandatory account</span><span>Optional connected services</span></div></div>
+    <section id="roadmap" class="section roadmap-section">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div>
+            <p class="kicker">Roadmap</p>
+            <h2>What exists now.<br><span>What comes next.</span></h2>
+          </div>
+          <p>The public site separates current development features from future ideas so nothing reads as shipped before it actually is.</p>
+        </div>
+
+        <div class="roadmap-grid">
+          <article class="roadmap-card roadmap-current reveal">
+            <p>IN THE CURRENT BUILD</p>
+            <h3>The foundation is already real.</h3>
+            <ul>
+              <li>Collection CRUD + artwork + genres</li>
+              <li>Manual play logging</li>
+              <li>Current-year + all-time stats</li>
+              <li>Discogs search, import, barcode + tracklists</li>
+              <li>Onboarding + swipe actions</li>
+              <li>Explainable Discover recommendations</li>
+            </ul>
+          </article>
+
+          <article class="roadmap-card roadmap-next reveal">
+            <p>NEXT</p>
+            <h3>Make the physical shelf faster.</h3>
+            <ul>
+              <li>NFC tag read/write flows</li>
+              <li>Fast physical-record play logging</li>
+              <li>Release-readiness and Play Store polish</li>
+            </ul>
+          </article>
+
+          <article class="roadmap-card reveal">
+            <p>LATER</p>
+            <h3>Tell a bigger listening story.</h3>
+            <ul>
+              <li>Album Wrapped / yearly stories</li>
+              <li>Shelf coverage + dormant-record insights</li>
+              <li>Deeper rotation and collection analytics</li>
+            </ul>
+          </article>
+        </div>
+      </div>
     </section>
 
-
-    <section id="roadmap" class="roadmap-section"><div class="shell">
-      <div class="roadmap-top">
-        <div><p class="section-kicker">Roadmap</p><h2>Where the grooves lead next.</h2></div>
-        <p>The current development build already includes collection management, play logging, stats, tracklists, barcode lookup, Discogs import, onboarding, quick actions, and explainable Discover recommendations. The next work moves toward physical interaction, deeper listening stories, and release readiness.</p>
+    <section class="launch-section">
+      <div class="shell launch-card reveal">
+        <div>
+          <p class="kicker">Groovefolio for Android</p>
+          <h2>The shelf is getting ready.</h2>
+          <p>Groovefolio is under active development and heading toward its first public Google Play release.</p>
+        </div>
+        <div class="launch-actions">
+          <span class="play-placeholder"><i aria-hidden="true">▶</i><b>Google Play</b><small>Coming soon</small></span>
+          <a href="#top">Back to top ↑</a>
+        </div>
       </div>
-      <ol class="roadmap">
-        <li class="done"><div class="roadmap-index">CURRENT</div><div><span>Release data</span><h3>Discogs + barcode + tracklists</h3><p>Search exact vinyl releases, scan a barcode, autofill editable metadata, import a connected collection, and keep side-grouped tracklists locally.</p></div></li>
-        <li class="done"><div class="roadmap-index">CURRENT</div><div><span>Collection experience</span><h3>Onboarding + quick actions</h3><p>First-run guidance teaches the app, while swipe actions make everyday Edit and Delete workflows faster without cluttering the collection.</p></div></li>
-        <li class="done"><div class="roadmap-index">CURRENT</div><div><span>Discovery</span><h3>Explainable recommendations</h3><p>Build a taste profile from local plays and surface rediscovery, genre, and favorite-era picks with a reason for each recommendation.</p></div></li>
-        <li class="current"><div class="roadmap-index">NEXT</div><div><span>Physical interaction</span><h3>NFC play logging</h3><p>Use the existing NFC persistence groundwork to connect a tagged physical record with a fast on-device play-log flow.</p></div></li>
-        <li><div class="roadmap-index">FUTURE</div><div><span>Listening stories</span><h3>Album Wrapped + deeper shelf analytics</h3><p>Turn long-term play history into yearly stories, shelf coverage, dormant-record insights, rotation depth, and other collection-versus-listening views.</p></div></li>
-      </ol>
-    </div></section>
-
-    <section class="cta-section"><div class="shell cta"><img src="assets/branding/groovefolio-icon-mark.png" alt="" width="82" height="82"><div><p class="section-kicker">Groovefolio for Android</p><h2>Your shelf is almost ready.</h2><p>Groovefolio is under active development and heading toward its first public release on Google Play.</p></div><span class="button button-dark button-static" aria-label="Google Play coming soon">Google Play · Coming Soon</span></div></section>
+    </section>
   </main>
 
-  <footer><div class="shell footer-grid"><div class="footer-brand"><img src="assets/branding/groovefolio-icon-mark.png" alt="" width="44" height="44"><strong>Groovefolio</strong></div><p>Built for vinyl collectors who listen to their collections.</p><div class="footer-links"><a href="#features">Features</a><a href="#roadmap">Roadmap</a><a href="#privacy">Local-first</a><a href="https://groovefolio.app/" aria-label="Groovefolio home">groovefolio.app</a></div><p class="copyright">© <span id="year"></span> Groovefolio. Discogs is a trademark of Zink Media, LLC. Groovefolio is not affiliated with Discogs.</p></div></footer>
-  <script src="script.js?rev=20260824-4"></script>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div class="footer-brand">
+        <img src="assets/branding/groovefolio-wordmark.png" alt="Groovefolio" width="772" height="178">
+        <p>Your record shelf, remembered.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <a href="#features">Features</a>
+        <a href="#flow">How it works</a>
+        <a href="#screens">Screens</a>
+        <a href="#roadmap">Roadmap</a>
+      </nav>
+      <div class="footer-meta">
+        <a href="https://groovefolio.app/">groovefolio.app</a>
+        <p>Groovefolio is not affiliated with Discogs. Discogs is a trademark of Zink Media, LLC.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?rev=20260824-redesign1" defer></script>
 </body>
 </html>
