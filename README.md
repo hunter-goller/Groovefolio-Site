@@ -73,3 +73,8 @@ Then open `http://localhost:8080`.
 ## Discogs notice
 
 Groovefolio is not affiliated with Discogs. Discogs is a trademark of Zink Media, LLC.
+
+
+## Visual direction
+
+The current homepage uses the real Collection screen in the hero, a restrained physical-vinyl visual language, alternating warm-paper/dark sections, and mobile-native swipe galleries. The homepage deliberately avoids adding more sections when existing product screens can tell the story.
