@@ -1,14 +1,4 @@
 (() => {
-  // Load the phone-specific density pass separately so the desktop redesign
-  // remains untouched and mobile changes stay easy to maintain.
-  if (!document.querySelector('link[data-mobile-css]')) {
-    const mobileCss = document.createElement('link');
-    mobileCss.rel = 'stylesheet';
-    mobileCss.href = 'mobile.css?rev=20260831-mobile1';
-    mobileCss.dataset.mobileCss = '';
-    document.head.appendChild(mobileCss);
-  }
-
   const root = document.documentElement;
   const progress = document.querySelector('.scroll-progress span');
   const header = document.querySelector('[data-header]');
@@ -56,7 +46,6 @@
     revealItems.forEach((el) => observer.observe(el));
   }
 
-  // Close the mobile menu if the layout changes back to desktop.
   window.matchMedia('(min-width: 821px)').addEventListener?.('change', (event) => {
     if (!event.matches || !menuButton || !menu) return;
     menuButton.setAttribute('aria-expanded', 'false');
