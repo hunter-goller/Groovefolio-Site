@@ -1,1 +1,166 @@
-/* ==========================================================================\n   MOBILE-FIRST DENSITY PASS · 2026-08-31\n   Keeps the desktop redesign intact while making the phone experience\n   substantially shorter and easier to scan. Only the Screens section uses\n   horizontal swiping; the main product story remains normal vertical scroll.\n   ========================================================================== */\n\n@media (max-width: 600px) {\n  .section { padding: 52px 0; }\n  .section-heading { gap: 14px; margin-bottom: 28px; }\n  .section-heading > p { font-size: 13px; line-height: 1.55; }\n  .section-heading h2,\n  .onboarding-copy h2,\n  .discogs-copy h2,\n  .difference-copy h2,\n  .local-copy h2,\n  .launch-card h2 { font-size: clamp(36px, 10vw, 46px); line-height: .98; }\n  .kicker, .eyebrow { font-size: 9px; letter-spacing: .12em; }\n\n  .site-header { backdrop-filter: blur(18px); }\n  .nav-shell { min-height: 60px; }\n  .brand img { width: 132px; }\n  .menu-button { width: 38px; height: 38px; }\n\n  .hero-grid { gap: 20px; padding: 34px 0 42px; }\n  .hero h1 { font-size: clamp(49px, 13vw, 62px); line-height: .91; }\n  .hero-lede { max-width: 355px; margin-top: 18px; font-size: 14px; line-height: 1.57; }\n  .hero-actions { gap: 8px; margin-top: 22px; }\n  .button { min-height: 46px; padding: 12px 16px; }\n  .hero-traits { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 22px; }\n  .hero-traits li { min-width: 0; padding: 10px 8px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.32); }\n  .hero-traits li strong { font-size: 9px; line-height: 1.2; }\n  .hero-traits li span { display: none; }\n  .hero-art { min-height: 360px; }\n  .hero-halo { inset: 4% 4% 2%; border-radius: 28px; }\n  .hero-record { width: 205px; right: -4%; top: 4%; opacity: .96; }\n  .device-main { width: 194px; left: 50%; top: 1%; transform: translateX(-50%) rotate(-1deg); }\n  .device-back, .floating-note { display: none; }\n\n  .proof-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }\n  .proof-grid > div, .proof-grid > div:nth-child(3), .proof-grid > div:nth-child(4) { min-height: 76px; padding: 14px 8px; border-top: 0; text-align: center; }\n  .proof-grid > div:first-child { border-left: 1px solid var(--line); }\n  .proof-grid span { font-size: 8px; }\n  .proof-grid strong { margin-top: 5px; font-size: 11px; }\n  .proof-grid p { display: none; }\n\n  .feature-bento { gap: 12px; }\n  .feature-card, .feature-card-large, .feature-card-wide { min-height: 0; padding: 20px; border-radius: 22px; }\n  .feature-card h3 { font-size: 27px; line-height: 1.02; }\n  .feature-card p:not(.feature-number) { margin-top: 11px; font-size: 13px; line-height: 1.52; }\n  .feature-number { margin-bottom: 9px; font-size: 8px; }\n  .feature-device-wrap { display: none; }\n  .pill-row { gap: 6px; margin-top: 15px; }\n  .pill-row span { padding: 6px 9px; font-size: 9px; }\n  .mini-ui { margin-top: 20px; padding: 11px; border-radius: 14px; }\n  .mini-dot { width: 26px; height: 26px; }\n  .mini-ui strong { padding: 7px 9px; font-size: 9px; }\n  .stat-visual { gap: 8px; margin-top: 18px; }\n  .stat-visual > div:not(.spark) { padding: 11px; border-radius: 14px; }\n  .stat-visual span { font-size: 27px; }\n  .spark { height: 58px; padding: 10px; border-radius: 14px; }\n  .discogs-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 18px; }\n  .discogs-steps i { display: none; }\n  .discogs-steps span { min-height: 76px; gap: 5px; padding: 9px 5px; border-radius: 14px; font-size: 9px; line-height: 1.25; }\n  .discogs-steps b { width: 23px; height: 23px; font-size: 9px; }\n\n  .section-ink { padding-top: 56px; padding-bottom: 56px; }\n  .flow-list { gap: 10px; }\n  .flow-row, .flow-row-reverse { position: relative; min-height: 218px; display: grid; grid-template-columns: minmax(0, 1fr) 100px; gap: 13px; align-items: center; padding: 18px 14px 18px 17px; border-radius: 21px; }\n  .flow-row .flow-copy, .flow-row-reverse .flow-copy { grid-column: 1; grid-row: 1; min-width: 0; }\n  .flow-row .device-flow, .flow-row-reverse .device-flow { grid-column: 2; grid-row: 1; width: 96px; margin: 0; justify-self: end; align-self: center; }\n  .flow-index { position: absolute; top: 13px; right: 13px; z-index: 3; padding: 0; font-size: 8px; opacity: .58; }\n  .flow-label { margin-bottom: 7px; padding-right: 24px; font-size: 8px; }\n  .flow-copy h3 { max-width: 210px; font-size: 27px; line-height: .99; }\n  .flow-copy > p:not(.flow-label) { max-width: 215px; margin-top: 10px; font-size: 12px; line-height: 1.48; }\n  .flow-tags { display: none; }\n  .device-flow { padding: 10px 3px 5px; border-radius: 17px; }\n  .device-flow .device-speaker { top: 4px; width: 24px; height: 2px; }\n  .device-flow img { border-radius: 13px; }\n  .device-flow::after { bottom: 2px; width: 20px; height: 2px; }\n\n  .onboarding-grid { gap: 24px; }\n  .onboarding-copy > p:not(.kicker) { margin-top: 16px; font-size: 13px; line-height: 1.55; }\n  .numbered-list { gap: 8px; margin-top: 20px; }\n  .numbered-list > div { grid-template-columns: 28px 1fr; gap: 8px; padding-top: 10px; }\n  .numbered-list small { margin-top: 3px; font-size: 11px; }\n  .onboarding-stack { min-height: 300px; display: flex; align-items: flex-end; justify-content: center; gap: 10px; }\n  .onboarding-stack::before { width: 260px; height: 260px; left: 50%; right: auto; top: 18px; transform: translateX(-50%); }\n  .device-onboarding { position: relative; left: auto; right: auto; top: auto; bottom: auto; width: min(145px, 40vw); }\n  .onboarding-one, .onboarding-two { transform: none; }\n  .onboarding-two { transform: translateY(18px); }\n\n  .discogs-grid { gap: 24px; }\n  .discogs-copy > p:not(.kicker):not(.discogs-note) { margin-top: 16px; font-size: 13px; line-height: 1.55; }\n  .import-list { gap: 6px; margin-top: 20px; }\n  .import-list li { grid-template-columns: 28px 1fr; gap: 8px; padding: 10px 0; }\n  .import-list li > span { width: 23px; height: 23px; }\n  .import-list small { font-size: 11px; }\n  .discogs-note { margin-top: 14px; }\n  .import-devices { min-height: 300px; display: flex; align-items: flex-end; justify-content: center; gap: 10px; }\n  .device-import { position: relative; left: auto; right: auto; top: auto; bottom: auto; width: min(145px, 40vw); transform: none; }\n  .import-done { transform: translateY(18px); }\n  .import-arrow { left: 50%; top: 48%; width: 36px; height: 36px; font-size: 16px; }\n\n  .difference-grid { gap: 22px; padding-block: 54px; }\n  .difference-copy > p:not(.kicker) { margin-top: 16px; font-size: 13px; line-height: 1.57; }\n  .taste-chips { gap: 6px; margin-top: 18px; }\n  .taste-chips span { padding: 6px 9px; font-size: 9px; }\n  .difference-art { min-height: 315px; }\n  .orange-orbit { width: min(280px, 78vw); height: min(280px, 78vw); }\n  .device-difference { width: 168px; }\n\n  .screens-section { padding-top: 56px; padding-bottom: 56px; }\n  .screen-grid { gap: 10px; padding-bottom: 10px; }\n  .screen-card { flex-basis: min(74vw, 280px); padding: 13px 13px 18px; }\n  .device-gallery { width: 185px; margin-bottom: 17px; }\n  .screen-card h3 { font-size: 20px; }\n  .screen-card > p:last-child { margin-top: 8px; font-size: 11px; line-height: 1.48; }\n\n  .local-grid { grid-template-columns: 82px minmax(0, 1fr); gap: 16px; align-items: start; }\n  .local-mark { min-height: 0; padding-top: 2px; }\n  .local-record { width: 78px; box-shadow: 0 14px 35px rgba(34,24,17,.16); }\n  .local-record span { width: 31px; height: 31px; font-size: 5px; letter-spacing: .03em; }\n  .local-copy h2 { font-size: 34px; }\n  .local-copy > p:not(.kicker) { margin-top: 14px; font-size: 12px; line-height: 1.52; }\n  .local-facts { grid-template-columns: 1fr; gap: 4px; margin-top: 18px; }\n  .local-facts > div { padding-top: 9px; }\n  .local-facts b { font-size: 11px; }\n  .local-facts span { font-size: 9px; }\n\n  .roadmap-grid { gap: 10px; }\n  .roadmap-card { padding: 19px; border-radius: 20px; }\n  .roadmap-card > p { font-size: 8px; }\n  .roadmap-card h3 { margin-top: 10px; font-size: 24px; }\n  .roadmap-card ul { margin-top: 15px; }\n  .roadmap-card li { padding: 7px 0; font-size: 11px; line-height: 1.35; }\n\n  .launch-section { padding: 8px 0 52px; }\n  .launch-card { gap: 24px; padding: 24px 20px; border-radius: 24px; }\n  .launch-card > div:first-child > p:not(.kicker) { margin-top: 12px; font-size: 12px; line-height: 1.5; }\n  .play-placeholder { min-width: 172px; }\n  .footer-grid { gap: 22px; padding-block: 34px; }\n  .site-footer nav { grid-template-columns: repeat(2, max-content); gap: 8px 24px; }\n  .footer-meta p { margin-top: 8px; }\n}\n
+/* Mobile-first presentation for Groovefolio. Loaded directly by index.html. */
+@media (max-width: 600px) {
+  .section { padding: 46px 0; }
+  .section-heading { gap: 12px; margin-bottom: 24px; }
+  .section-heading > p { font-size: 12px; line-height: 1.5; }
+  .section-heading h2,
+  .onboarding-copy h2,
+  .discogs-copy h2,
+  .difference-copy h2,
+  .local-copy h2,
+  .launch-card h2 { font-size: clamp(34px, 9.5vw, 44px); line-height: .98; }
+  .kicker, .eyebrow { font-size: 9px; letter-spacing: .12em; }
+
+  .nav-shell { min-height: 60px; }
+  .brand img { width: 132px; }
+  .menu-button { width: 38px; height: 38px; }
+
+  .hero-grid { gap: 18px; padding: 32px 0 38px; }
+  .hero h1 { font-size: clamp(48px, 13vw, 60px); line-height: .91; }
+  .hero-lede { max-width: 355px; margin-top: 16px; font-size: 14px; line-height: 1.55; }
+  .hero-actions { gap: 8px; margin-top: 20px; }
+  .button { min-height: 46px; padding: 12px 16px; }
+  .hero-traits { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 7px; margin-top: 20px; }
+  .hero-traits li { min-width: 0; padding: 9px 7px; border: 1px solid var(--line); border-radius: 13px; background: rgba(255,255,255,.32); }
+  .hero-traits li strong { font-size: 9px; line-height: 1.2; }
+  .hero-traits li span { display: none; }
+  .hero-art { min-height: 340px; }
+  .hero-halo { inset: 4% 4% 2%; border-radius: 28px; }
+  .hero-record { width: 195px; right: -4%; top: 4%; }
+  .device-main { width: 188px; left: 50%; top: 1%; transform: translateX(-50%) rotate(-1deg); }
+  .device-back, .floating-note { display: none; }
+
+  /* The proof strip repeats the same four ideas already visible above/below. */
+  .proof-strip { display: none; }
+
+  /* Compact 2x2 feature overview instead of four tall cards. */
+  .feature-bento { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+  .feature-card,
+  .feature-card-large,
+  .feature-card-wide { grid-column: auto !important; min-height: 184px; padding: 16px; border-radius: 20px; }
+  .feature-number { margin-bottom: 8px; font-size: 8px; }
+  .feature-card h3 { font-size: 21px; line-height: 1.02; }
+  .feature-card p:not(.feature-number) {
+    display: -webkit-box;
+    margin-top: 8px;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    font-size: 11px;
+    line-height: 1.42;
+  }
+  .feature-device-wrap,
+  .feature-card .pill-row,
+  .feature-card .mini-ui,
+  .feature-card .stat-visual,
+  .feature-card .discogs-steps { display: none; }
+
+  /* Keep How it works vertical, but make each step quick to skim. */
+  .section-ink { padding-top: 50px; padding-bottom: 50px; }
+  .flow-list { gap: 9px; }
+  .flow-row, .flow-row-reverse {
+    position: relative;
+    min-height: 168px;
+    display: grid;
+    grid-template-columns: minmax(0,1fr) 78px;
+    gap: 11px;
+    align-items: center;
+    padding: 15px 12px 15px 15px;
+    border-radius: 20px;
+  }
+  .flow-row .flow-copy, .flow-row-reverse .flow-copy { grid-column: 1; grid-row: 1; min-width: 0; }
+  .flow-row .device-flow, .flow-row-reverse .device-flow { grid-column: 2; grid-row: 1; width: 74px; margin: 0; justify-self: end; }
+  .flow-index { position: absolute; top: 11px; right: 11px; z-index: 3; font-size: 8px; opacity: .55; }
+  .flow-label { margin-bottom: 6px; padding-right: 20px; font-size: 8px; }
+  .flow-copy h3 { max-width: 190px; font-size: 22px; line-height: 1; }
+  .flow-copy > p:not(.flow-label) {
+    display: -webkit-box;
+    max-width: 190px;
+    margin-top: 8px;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    font-size: 10.5px;
+    line-height: 1.4;
+  }
+  .flow-tags { display: none; }
+  .device-flow { padding: 8px 3px 5px; border-radius: 15px; }
+  .device-flow img { border-radius: 11px; }
+
+  /* Shorter onboarding + Discogs sections; screenshots still stay visible. */
+  .onboarding-grid, .discogs-grid { gap: 16px; }
+  .onboarding-copy > p:not(.kicker),
+  .discogs-copy > p:not(.kicker):not(.discogs-note) { margin-top: 14px; font-size: 12px; line-height: 1.5; }
+  .numbered-list, .import-list { display: none; }
+  .onboarding-stack, .import-devices { min-height: 255px; display: flex; align-items: flex-end; justify-content: center; gap: 9px; }
+  .onboarding-stack::before { width: 225px; height: 225px; left: 50%; right: auto; top: 12px; transform: translateX(-50%); }
+  .device-onboarding,
+  .device-import { position: relative; left: auto; right: auto; top: auto; bottom: auto; width: min(124px,35vw); transform: none; }
+  .onboarding-two, .import-done { transform: translateY(10px); }
+  .import-arrow { left: 50%; top: 48%; width: 32px; height: 32px; font-size: 14px; }
+
+  .difference-grid { gap: 18px; padding-block: 44px; }
+  .difference-copy > p:not(.kicker) { margin-top: 14px; font-size: 12px; line-height: 1.5; }
+  .taste-chips { gap: 5px; margin-top: 16px; }
+  .taste-chips span { padding: 5px 8px; font-size: 9px; }
+  .difference-art { min-height: 260px; }
+  .orange-orbit { width: min(240px,72vw); height: min(240px,72vw); }
+  .device-difference { width: 148px; }
+
+  /* One deliberate carousel: extra screenshots. */
+  .screens-section { padding-top: 50px; padding-bottom: 50px; }
+  .mobile-swipe-hint {
+    display: flex;
+    justify-content: flex-end;
+    margin: -6px 0 12px;
+    color: rgba(255,255,255,.62);
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .screen-grid {
+    display: flex;
+    gap: 10px;
+    margin-inline: -16px -18px;
+    padding: 0 34px 10px 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 16px;
+    scrollbar-width: none;
+  }
+  .screen-grid::-webkit-scrollbar { display: none; }
+  .screen-card { flex: 0 0 min(72vw,270px); scroll-snap-align: start; padding: 13px 13px 18px; border-radius: 22px; }
+  .device-gallery { width: 178px; margin-bottom: 15px; }
+  .screen-card h3 { font-size: 19px; }
+  .screen-card > p:last-child { margin-top: 7px; font-size: 11px; line-height: 1.45; }
+
+  .local-grid { grid-template-columns: 72px minmax(0,1fr); gap: 14px; align-items: start; }
+  .local-mark { min-height: 0; padding-top: 2px; }
+  .local-record { width: 68px; box-shadow: 0 12px 30px rgba(34,24,17,.16); }
+  .local-record span { width: 28px; height: 28px; font-size: 5px; }
+  .local-copy h2 { font-size: 32px; }
+  .local-copy > p:not(.kicker) { margin-top: 12px; font-size: 11.5px; line-height: 1.48; }
+  .local-facts { grid-template-columns: 1fr; gap: 3px; margin-top: 15px; }
+  .local-facts > div { padding-top: 8px; }
+  .local-facts b { font-size: 10.5px; }
+  .local-facts span { font-size: 9px; }
+
+  .roadmap-grid { gap: 9px; }
+  .roadmap-card { padding: 17px; border-radius: 19px; }
+  .roadmap-card > p { font-size: 8px; }
+  .roadmap-card h3 { margin-top: 9px; font-size: 21px; }
+  .roadmap-card ul { margin-top: 12px; }
+  .roadmap-card li { padding: 5px 0; font-size: 10px; line-height: 1.32; }
+
+  .launch-section { padding: 8px 0 46px; }
+  .launch-card { gap: 20px; padding: 22px 18px; border-radius: 22px; }
+  .launch-card > div:first-child > p:not(.kicker) { margin-top: 10px; font-size: 11.5px; line-height: 1.45; }
+  .play-placeholder { min-width: 168px; }
+  .footer-grid { gap: 18px; padding-block: 30px; }
+  .site-footer nav { grid-template-columns: repeat(2,max-content); gap: 8px 20px; }
+}
+
+@media (min-width: 601px) {
+  .mobile-swipe-hint { display: none; }
+}
