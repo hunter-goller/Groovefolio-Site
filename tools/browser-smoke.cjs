@@ -15,7 +15,7 @@ const server = createServer(async (req, res) => {
   const pathname = new URL(req.url, "http://localhost").pathname;
   const file = path.resolve(
     root,
-    "." + (pathname === "/" ? "/index.html" : pathname),
+    "." + (pathname.endsWith("/") ? pathname + "index.html" : pathname),
   );
   if (!file.startsWith(root + path.sep)) {
     res.writeHead(403).end();
@@ -118,11 +118,55 @@ const server = createServer(async (req, res) => {
       console.log(
         `PASS ${width}px: layout, feature selection, dialog, focus return, FAQs, navigation`,
       );
+      await page
+        .getByRole("link", { name: "Privacy policy", exact: true })
+        .click();
+      await page.waitForURL(`${url}/privacy/`);
+      assert(
+        await page
+          .getByRole("heading", { name: "Privacy policy", exact: true })
+          .isVisible(),
+      );
+      assert.equal(await page.locator("article h2").count(), 11);
+      assert(
+        !(await page.evaluate(
+          () => document.documentElement.scrollWidth > innerWidth,
+        )),
+      );
+      await page
+        .getByRole("link", { name: "8. Retention and deletion", exact: true })
+        .click();
+      assert.equal(new URL(page.url()).hash, "#section-8");
+      assert.equal(
+        await page
+          .getByRole("link", { name: "Email support", exact: true })
+          .getAttribute("href"),
+        "mailto:support.groovefolio@gmail.com",
+      );
+      const policyText = await page.locator("main").innerText();
+      assert(!policyText.includes("Draft for review"));
+      assert(!policyText.includes("Publication notes"));
+      await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
+      await page.screenshot({
+        path: `test-results/privacy-${width}.png`,
+        fullPage: true,
+      });
+      await page
+        .getByRole("link", { name: "Back to Groovefolio", exact: true })
+        .click();
+      await page.waitForURL(`${url}/`);
+      console.log(
+        `PASS ${width}px: privacy page, deletion section, support address, return navigation`,
+      );
     }
     const nojs = await browser.newPage({ javaScriptEnabled: false });
     await nojs.goto(url);
     assert.equal(await nojs.locator(".feature-panel:visible").count(), 4);
     assert(await nojs.locator("#navigation").isVisible());
+    await nojs
+      .getByRole("link", { name: "Privacy policy", exact: true })
+      .click();
+    assert.equal(await nojs.locator("article h2").count(), 11);
     assert.deepEqual(errors, []);
     console.log(
       "PASS: no-JavaScript fallback, reduced motion, no page errors or HTTP failures",
