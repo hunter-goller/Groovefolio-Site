@@ -1,70 +1,56 @@
-# Groovefolio Site
+# Groovefolio website
 
-Public marketing/showcase site for **Groovefolio**, a local-first Android app for vinyl collectors.
+The public product website for Groovefolio, an Android-first, local-first vinyl companion. Production: https://groovefolio.app/.
 
-**Live site:** `https://groovefolio.app/`
+## Release redesign — September 2026
 
-This repository is intentionally separate from the Flutter app repository. It contains only the public website and web-optimized product assets.
+Warm ivory, ink, sage, and orange; real September app screenshots; four selectable feature panels; dedicated NFC section; local-storage explanation; FAQs; screenshot enlargement. Small-screen navigation and feature controls do not require swipe gestures. Without JavaScript, all feature sections and ordinary image links remain available.
 
-## 2026 redesign
+The site is **pre-release**, not a download page yet. NFC is a current app feature; Discogs is optional; Discover uses the user's own shelf and listening history. No streaming integration, AI recommendation engine, cloud sync, or automatic backup is claimed.
 
-The homepage was rebuilt from scratch around the real Groovefolio Android screens rather than incrementally patching the previous layout.
+## Preview and checks
 
-Design goals:
+No build step or runtime dependencies. Node dependencies are development tools only. From this directory:
 
-- no sticky-scroll sections that create large empty gaps
-- one consistent phone-frame system for every app screenshot
-- stronger desktop composition without sacrificing mobile
-- fewer repetitive screenshots
-- clearer separation between current features and future roadmap items
-- restrained orange, warm paper, dark listening sections, and vinyl-inspired physical details
-- static HTML/CSS/vanilla JS with progressive enhancement and reduced-motion support
-
-## Current product story shown on the site
-
-- local-first collection management
-- artwork, genres, release metadata, and side-grouped tracklists
-- manual full-album / Side A / Side B play logging with editable date and time
-- current-year and all-time listening stats
-- Discogs exact-release search/autofill, barcode lookup, connected collection import, and tracklists
-- first-run onboarding
-- Collection swipe actions for Edit/Delete
-- local taste-profile and explainable Discover recommendations
-
-Future items are clearly labeled in the roadmap, including NFC device flows and deeper yearly/shelf analytics.
-
-## Structure
-
-```text
-.
-├── .github/workflows/pages.yml
-├── .nojekyll
-├── assets/
-│   ├── branding/
-│   ├── screenshots/
-│   └── social/
-├── index.html
-├── 404.html
-├── styles.css
-├── script.js
-├── robots.txt
-└── sitemap.xml
-```
-
-## Local preview
-
-```bash
+```sh
 python -m http.server 8080
+node tools/check-site.mjs
+node --check script.js
 ```
 
-Open `http://localhost:8080`.
+Browser checks (CI also runs these and attaches screenshots):
 
-## Domain / deployment
+```sh
+npm ci
+npx playwright install chromium
+npm run test:browser
+```
 
-GitHub Pages custom domain: `groovefolio.app`
+Open http://localhost:8080. Test at 320, 390, 768, and 1440 pixels wide. Check all four feature buttons, screenshot open/close (including Escape and focus return), mobile navigation, FAQ expansion, and browser zoom. Also test with JavaScript disabled and reduced motion enabled.
 
-Pushes to `main` deploy through `.github/workflows/pages.yml`.
+## Files
 
-## Discogs notice
+- `index.html`: page structure, product copy, metadata, and release status.
+- `styles.css`: all desktop/mobile styling, including reduced-motion rules. Replaces the old separate `mobile.css` overrides.
+- `script.js`: feature selection, navigation, and native screenshot dialog.
+- `assets/screenshots/release/`: optimized copies of the September 22 screenshots, including Settings. Original uploads are not published.
+- `assets/branding/`, `assets/social/`: existing branding and social preview assets.
+- `tools/check-site.mjs`: dependency-free local asset, anchor, metadata, and screenshot-budget checks.
+- `.github/workflows/check.yml`: read-only PR validation; it does not deploy.
+- `.github/workflows/pages.yml`: existing production deployment, triggered by main.
 
-Groovefolio is not affiliated with Discogs. Discogs is a trademark of Zink Media, LLC.
+## Before public app release
+
+1. Provide the real Play Store listing URL for `app.groovefolio`. Replace coming-soon copy in navigation, release section, FAQ, and metadata together. Do not use a fake or placeholder download link.
+2. Confirm a support email and publish the reviewed privacy policy. Replace the explicit footer placeholders and update app Settings. Do not claim the placeholders are a policy.
+3. Retake Settings after those links are live, and update screenshots if UI changes.
+4. Confirm NFC and Discogs behavior on the shipping build; recheck website claims against it.
+5. Review mobile layout and social previews before merging.
+
+## Deployment
+
+GitHub Pages remains the host. Only a merge/push to `main` publishes the redesign. Feature branches do not deploy. Keep the custom domain configured as `groovefolio.app` in repository Pages settings.
+
+## Attribution
+
+Screenshots are supplied by the app owner. Discogs attribution remains in the footer. Album artwork shown inside the app screenshots is not a Groovefolio endorsement by the artists or labels.
