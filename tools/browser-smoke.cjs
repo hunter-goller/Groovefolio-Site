@@ -141,7 +141,7 @@ const server = createServer(async (req, res) => {
         await page
           .getByRole("link", { name: "Email support", exact: true })
           .getAttribute("href"),
-        "mailto:support.groovefolio@gmail.com",
+        "../support/",
       );
       const policyText = await page.locator("main").innerText();
       assert(!policyText.includes("Draft for review"));
@@ -155,8 +155,31 @@ const server = createServer(async (req, res) => {
         .getByRole("link", { name: "Back to Groovefolio", exact: true })
         .click();
       await page.waitForURL(`${url}/`);
+      await page
+        .getByRole("link", { name: "Email support", exact: true })
+        .click();
+      await page.waitForURL(`${url}/support/`);
+      assert.equal(
+        await page.getByLabel("Support email", { exact: true }).inputValue(),
+        "support.groovefolio@gmail.com",
+      );
+      assert.equal(
+        await page
+          .getByRole("link", { name: "Open email app", exact: true })
+          .getAttribute("href"),
+        "mailto:support.groovefolio@gmail.com",
+      );
+      assert(
+        !(await page.evaluate(
+          () => document.documentElement.scrollWidth > innerWidth,
+        )),
+      );
+      await page.screenshot({
+        path: `test-results/support-${width}.png`,
+        fullPage: true,
+      });
       console.log(
-        `PASS ${width}px: privacy page, deletion section, support address, return navigation`,
+        `PASS ${width}px: privacy page, deletion section, support page, return navigation`,
       );
     }
     const nojs = await browser.newPage({ javaScriptEnabled: false });
@@ -167,6 +190,65 @@ const server = createServer(async (req, res) => {
       .getByRole("link", { name: "Privacy policy", exact: true })
       .click();
     assert.equal(await nojs.locator("article h2").count(), 11);
+    await nojs
+      .getByRole("link", { name: "Email support", exact: true })
+      .click();
+    assert.equal(
+      await nojs.getByLabel("Support email", { exact: true }).inputValue(),
+      "support.groovefolio@gmail.com",
+    );
+    assert(await nojs.locator("#copy-email").isHidden());
+    await page.evaluate(() => {
+      Object.defineProperty(navigator, "clipboard", {
+        configurable: true,
+        value: {
+          writeText: async (value) => {
+            window.copiedEmail = value;
+          },
+        },
+      });
+    });
+    await page.getByRole("button", { name: "Copy email address" }).click();
+    assert.equal(
+      await page.evaluate(() => window.copiedEmail),
+      "support.groovefolio@gmail.com",
+    );
+    assert(
+      (await page.getByRole("status").innerText()).includes(
+        "Email address copied",
+      ),
+    );
+    for (const available of [true, false]) {
+      await page.evaluate((available) => {
+        Object.defineProperty(navigator, "clipboard", {
+          configurable: true,
+          value: available
+            ? {
+                writeText: async () => {
+                  throw new Error("Permission denied");
+                },
+              }
+            : undefined,
+        });
+      }, available);
+      await page.getByRole("button", { name: "Copy email address" }).click();
+      assert(
+        (await page.getByRole("status").innerText()).includes(
+          "Automatic copying is unavailable",
+        ),
+      );
+      assert(
+        await page
+          .getByLabel("Support email", { exact: true })
+          .evaluate(
+            (el) =>
+              el.selectionStart === 0 && el.selectionEnd === el.value.length,
+          ),
+      );
+    }
+    console.log(
+      "PASS: clipboard success, permission denial, missing API, and selectable no-JavaScript address",
+    );
     assert.deepEqual(errors, []);
     console.log(
       "PASS: no-JavaScript fallback, reduced motion, no page errors or HTTP failures",

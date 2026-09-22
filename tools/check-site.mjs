@@ -4,7 +4,7 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const html = readFileSync(resolve(root, "index.html"), "utf8");
-for (const page of ["index.html", "privacy/index.html"]) {
+for (const page of ["index.html", "privacy/index.html", "support/index.html"]) {
   const content = readFileSync(resolve(root, page), "utf8");
   const pageIds = [...content.matchAll(/\bid="([^"]+)"/g)].map(
     (match) => match[1],

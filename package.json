@@ -2,7 +2,7 @@
   "name": "groovefolio-site",
   "private": true,
   "scripts": {
-    "check": "node tools/check-site.mjs && node --check script.js",
+    "check": "node tools/check-site.mjs && node --check script.js && node --check support/support.js",
     "test:browser": "node tools/browser-smoke.cjs"
   },
   "devDependencies": {
