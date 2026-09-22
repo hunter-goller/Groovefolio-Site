@@ -1,0 +1,64 @@
+.support-card {
+  margin-block: 32px;
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--sage);
+}
+.support-card label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.support-card input {
+  width: 100%;
+  min-width: 0;
+  padding: 14px 10px;
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--muted);
+  border-radius: 6px;
+}
+.support-card input:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+.support-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+.support-actions .button {
+  white-space: normal;
+  text-align: center;
+}
+.support-card .support-hint {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+#copy-status {
+  margin-block: 16px;
+}
+#copy-status:empty {
+  display: none;
+}
+.support-policy {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 400px) {
+  .support-card {
+    padding: 16px;
+  }
+  .support-actions .button {
+    width: 100%;
+  }
+}
+@media (max-width: 360px) {
+  .support-card input {
+    font-size: 14px;
+  }
+}

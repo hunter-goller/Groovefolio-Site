@@ -15,6 +15,7 @@ jobs:
           node-version: "22"
       - run: node tools/check-site.mjs
       - run: node --check script.js
+      - run: node --check support/support.js
       - run: git diff --check
       - run: npm ci
       - run: npx playwright install --with-deps chromium
