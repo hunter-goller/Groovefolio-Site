@@ -1,0 +1,12 @@
+{
+  "name": "groovefolio-site",
+  "private": true,
+  "scripts": {
+    "check": "node tools/check-site.mjs && node --check script.js",
+    "test:browser": "node tools/browser-smoke.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.51.1",
+    "prettier": "3.5.3"
+  }
+}
