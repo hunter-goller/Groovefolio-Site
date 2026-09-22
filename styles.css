@@ -271,7 +271,6 @@ nav a:not(.nav-cta):hover,
   box-shadow: 10px 20px 24px #1a1d1925;
   display: grid;
   place-items: center;
-  transform: rotate(18deg);
 }
 .record:after {
   content: "";
@@ -917,7 +916,7 @@ details p {
     margin-bottom: 23px;
   }
   h1 {
-    font-size: clamp(48px, 9vw, 66px);
+    font-size: clamp(34px, 10.5vw, 66px);
     line-height: 1.02;
     margin-bottom: 22px;
   }
