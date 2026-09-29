@@ -11,7 +11,7 @@ for (const expected of [
   "api.groovefolio.app",
   "Groovefolio does not display ads",
   "Cloudflare",
-  "no automatic age-based deletion",
+  "deleted by the minute-based cleanup",
   "does not notify the Groovefolio server",
   "Google ML Kit",
 ])
