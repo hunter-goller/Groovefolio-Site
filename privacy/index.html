@@ -357,11 +357,12 @@
         <ul>
           <li>
             <strong>Discogs connection:</strong> stored until successful
-            disconnect, installation revocation, or installation expiry.
-            Installation authorization lasts 30 days from registration or the
-            latest successful renewal; app use can renew it. A scheduled cleanup
-            normally runs every minute to remove connections belonging to
-            expired/revoked installations. Server outages can delay cleanup.
+            disconnect, authenticated installation deletion, or installation
+            expiry. Installation authorization lasts 30 days from registration
+            or the latest successful renewal; app use can renew it. A scheduled
+            cleanup normally runs every minute to delete expired installation
+            rows and their installation-owned records, including Discogs
+            connections. Server outages can delay cleanup.
           </li>
           <li>
             <strong>Authorization flows:</strong> expire after ten minutes;
@@ -379,9 +380,12 @@
               >Installation records and installation-linked rate-limit
               counters:</strong
             >
-            currently have no automatic age-based deletion. They remain after
-            disconnect or expiry until removed by the developer. Their purpose
-            is installation authorization and abuse protection, not advertising.
+            are deleted immediately when an authenticated installation-deletion
+            request succeeds. Expired installation rows and legacy rows marked
+            revoked are deleted by the minute-based cleanup described above.
+            Disconnecting Discogs alone leaves the installation authorization
+            and counters in place. Their purpose is installation authorization
+            and abuse protection, not advertising.
           </li>
           <li>
             <strong>Backups and provider logs:</strong> deletion from the active
