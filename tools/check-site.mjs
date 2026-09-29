@@ -4,6 +4,24 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const html = readFileSync(resolve(root, "index.html"), "utf8");
+const policy = readFileSync(resolve(root, "privacy/index.html"), "utf8");
+const policyText = policy.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ");
+for (const expected of [
+  "app.groovefolio",
+  "api.groovefolio.app",
+  "Groovefolio does not display ads",
+  "Cloudflare",
+  "no automatic age-based deletion",
+  "does not notify the Groovefolio server",
+  "Google ML Kit",
+])
+  assert(
+    policyText.includes(expected),
+    `Missing privacy disclosure: ${expected}`,
+  );
+assert(
+  !policyText.includes("The app communicates directly with Discogs over HTTPS"),
+);
 for (const page of ["index.html", "privacy/index.html", "support/index.html"]) {
   const content = readFileSync(resolve(root, page), "utf8");
   const pageIds = [...content.matchAll(/\bid="([^"]+)"/g)].map(

@@ -42,7 +42,10 @@ Open http://localhost:8080. Test at 320, 390, 768, and 1440 pixels wide. Check a
 ## Before public app release
 
 1. Provide the real Play Store listing URL for `app.groovefolio`. Replace coming-soon copy in navigation, release section, FAQ, and metadata together. Do not use a fake or placeholder download link.
-2. Confirm a support email and publish the reviewed privacy policy. Replace the explicit footer placeholders and update app Settings. Do not claim the placeholders are a policy.
+2. Review and publish the server/Cloudflare privacy revision at `/privacy/`.
+   Support and app Settings links already exist. Confirm real log/backup retention
+   and server-deletion handling before public app release; do not assume a retention
+   schedule from the website text. The release has no ads or AdMob SDK.
 3. Retake Settings after those links are live, and update screenshots if UI changes.
 4. Confirm NFC and Discogs behavior on the shipping build; recheck website claims against it.
 5. Review mobile layout and social previews before merging.
