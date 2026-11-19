@@ -3,34 +3,43 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="theme-color" content="#0e0d0c" />
     <title>Privacy Policy — Groovefolio</title>
-    <meta
-      name="description"
-      content="How Groovefolio handles local collections, Discogs connections, barcode scanning, NFC tags, and support messages. Learn how to delete your data."
-    />
+    <meta name="description" content="How Groovefolio handles local collections, Discogs connections, barcode scanning, NFC tags, and support messages. Learn how to delete your data." />
     <link rel="canonical" href="https://groovefolio.app/privacy/" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="../assets/branding/favicon-32.png"
-    />
-    <link rel="stylesheet" href="../styles.css?v=20260922" />
-    <link rel="stylesheet" href="privacy.css" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Groovefolio" />
+    <meta property="og:title" content="Privacy Policy — Groovefolio" />
+    <meta property="og:description" content="How Groovefolio handles local collections, Discogs connections, barcode scanning, NFC tags, and support messages. Learn how to delete your data." />
+    <meta property="og:url" content="https://groovefolio.app/privacy/" />
+    <meta property="og:image" content="https://groovefolio.app/assets/social/groovefolio-social.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Privacy Policy — Groovefolio" />
+    <meta name="twitter:description" content="How Groovefolio handles local collections, Discogs connections, barcode scanning, NFC tags, and support messages. Learn how to delete your data." />
+    <meta name="twitter:image" content="https://groovefolio.app/assets/social/groovefolio-social.png" />
+    <link rel="icon" href="/assets/branding/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/branding/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/styles.css?v=20261119" />
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to privacy policy</a>
-    <header class="policy-header shell">
-      <a class="wordmark" href="../"
-        >Groovefolio<span aria-hidden="true">.</span></a
-      >
-      <a class="policy-home" href="../">Back to Groovefolio</a>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="shell nav">
+        <a class="wordmark" href="/" aria-label="Groovefolio home">Groovefolio</a>
+        <a class="text-link" href="/">Back to Groovefolio</a>
+      </div>
     </header>
-    <main id="main" class="policy shell">
-      <p class="eyebrow">YOUR DATA, EXPLAINED</p>
-      <h1>Privacy policy</h1>
-      <nav class="policy-contents" aria-label="Privacy policy sections">
-        <p><strong>On this page</strong></p>
-        <ol>
+    <main id="main">
+      <div class="page-head shell">
+        <p class="label">Your data, explained</p>
+        <h1 class="title">Privacy policy</h1>
+      </div>
+      <div class="page-body shell">
+        <nav class="toc" aria-label="Privacy policy sections">
+          <p class="label">On this page</p>
+          <ol>
           <li><a href="#section-1">1. At a glance</a></li>
           <li>
             <a href="#section-2"
@@ -53,9 +62,9 @@
           <li><a href="#section-10">10. Children</a></li>
           <li><a href="#section-11">11. Changes and contact</a></li>
         </ol>
-      </nav>
-      <article aria-label="Groovefolio privacy policy">
-        <p><strong>Effective date: September 28, 2026.</strong></p>
+        </nav>
+        <article class="prose" aria-label="Groovefolio privacy policy">
+        <p class="effective">Effective date: September 28, 2026.</p>
         <p>
           Groovefolio is developed by Hunter Goller. This policy explains how
           the Groovefolio Android app (application ID
@@ -326,8 +335,8 @@
         <p>
           If you follow an external link from the app or website, the
           destination receives normal web-request information and operates under
-          its own privacy policy. This includes links to Discogs, retailers, and
-          help resources. Simply opening such a link does not upload your local
+          its own privacy policy. This includes links to Discogs and help
+          resources. Simply opening such a link does not upload your local
           collection or listening history.
         </p>
         <h2 id="section-8">8. Retention and deletion</h2>
@@ -359,7 +368,8 @@
             <strong>Discogs connection:</strong> stored until successful
             disconnect, authenticated installation deletion, or installation
             expiry. Installation authorization lasts 30 days from registration
-            or the latest successful renewal; app use can renew it. A scheduled
+            or the latest successful renewal; Discogs requests made by the app can
+            renew it. A scheduled
             cleanup normally runs every minute to delete expired installation
             rows and their installation-owned records, including Discogs
             connections. Server outages can delay cleanup.
@@ -467,10 +477,18 @@
           <a href="https://groovefolio.app/">groovefolio.app</a>
         </p>
       </article>
+      </div>
     </main>
-    <footer class="shell policy-footer">
-      <a href="../">Groovefolio home</a>
-      <a href="../support/">Email support</a>
+    <footer class="site-footer">
+      <div class="shell">
+        <div class="footer-top">
+          <a class="wordmark" href="/">Groovefolio</a>
+          <ul class="footer-links">
+            <li><a href="/">Groovefolio home</a></li>
+            <li><a href="/support/">Email support</a></li>
+          </ul>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

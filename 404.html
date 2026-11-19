@@ -1,23 +1,43 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f4efe8">
-  <meta name="robots" content="noindex">
-  <title>Not found — Groovefolio</title>
-  <link rel="icon" href="assets/branding/favicon-32.png" type="image/png" sizes="32x32">
-  <style>
-    *{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:24px;background:#f4efe8;color:#151311;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.card{width:min(100%,720px);padding:46px;border:1px solid rgba(21,19,17,.12);border-radius:32px;background:rgba(255,255,255,.38);box-shadow:0 28px 80px rgba(35,25,18,.10)}img{width:170px;height:auto}.k{margin:54px 0 10px;color:#d4622a;font-size:11px;font-weight:900;letter-spacing:.14em}h1{margin:0;font-size:clamp(48px,9vw,84px);line-height:.92;letter-spacing:-.06em}p{max-width:540px;margin:22px 0 0;color:#766c63;line-height:1.7}a{display:inline-flex;margin-top:28px;padding:13px 18px;border-radius:999px;background:#151311;color:#fff;text-decoration:none;font-size:14px;font-weight:800}@media(max-width:600px){.card{padding:30px 24px;border-radius:26px}.k{margin-top:42px}}
-  </style>
-</head>
-<body>
-  <main class="card">
-    <img src="assets/branding/groovefolio-wordmark.png" alt="Groovefolio" width="772" height="178">
-    <p class="k">404 / RECORD NOT FOUND</p>
-    <h1>This groove ends here.</h1>
-    <p>The page you followed is not on the shelf. Head back to Groovefolio and keep browsing the collection.</p>
-    <a href="https://groovefolio.app/">Back to Groovefolio</a>
-  </main>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'; upgrade-insecure-requests" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="theme-color" content="#0e0d0c" />
+    <title>Not found — Groovefolio</title>
+    <meta name="description" content="This page isn’t on the shelf." />
+    <meta name="robots" content="noindex" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Groovefolio" />
+    <meta property="og:title" content="Not found — Groovefolio" />
+    <meta property="og:description" content="This page isn’t on the shelf." />
+    <meta property="og:url" content="https://groovefolio.app/404.html" />
+    <meta property="og:image" content="https://groovefolio.app/assets/social/groovefolio-social.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Not found — Groovefolio" />
+    <meta name="twitter:description" content="This page isn’t on the shelf." />
+    <meta name="twitter:image" content="https://groovefolio.app/assets/social/groovefolio-social.png" />
+    <link rel="icon" href="/assets/branding/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/branding/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/styles.css?v=20261119" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="shell nav">
+        <a class="wordmark" href="/" aria-label="Groovefolio home">Groovefolio</a>
+      </div>
+    </header>
+    <main id="main" class="shell lost">
+      <div class="record-mini" aria-hidden="true"></div>
+      <p class="label">404 · Record not found</p>
+      <h1 class="display">This groove <em>ends here.</em></h1>
+      <p class="lede">
+        The page you followed isn’t on the shelf. Head back to Groovefolio and
+        keep browsing.
+      </p>
+      <p><a class="pill" href="/">Back to Groovefolio</a></p>
+    </main>
+  </body>
 </html>
