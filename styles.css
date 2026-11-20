@@ -807,23 +807,18 @@ a.device:hover {
     linear-gradient(var(--line), var(--line)) 50% 52% / 50% 3% no-repeat,
     var(--bg);
 }
-.toast {
+/* The real heads-up notification, dropping in at the top of the screen.
+   It overhangs the sketch a little so its text stays readable. */
+.heads-up {
   position: absolute;
-  right: 0;
-  bottom: 6%;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 14px 18px;
-  border-radius: 8px;
-  background: #f2e4da;
-  color: #2b211b;
-  font-size: 0.9375rem;
-  box-shadow: 0 20px 40px -16px rgb(0 0 0 / 0.8);
-}
-.toast b {
-  color: #8f3a14;
-  font-weight: 700;
+  top: 7%;
+  left: 50%;
+  z-index: 1;
+  width: 150%;
+  max-width: none;
+  height: auto;
+  translate: -50% 0;
+  filter: drop-shadow(0 14px 22px rgb(0 0 0 / 0.75));
 }
 /* Motion is opt-in: only when JS marks the demo as visible and motion is OK. */
 @media (prefers-reduced-motion: no-preference) {
@@ -833,8 +828,8 @@ a.device:hover {
   .tap-demo.is-playing .pulse {
     animation: pulse 4.8s ease-out infinite;
   }
-  .tap-demo.is-playing .toast {
-    animation: toast 4.8s var(--ease) infinite;
+  .tap-demo.is-playing .heads-up {
+    animation: heads-up 4.8s var(--ease) infinite;
   }
 }
 @keyframes approach {
@@ -869,21 +864,21 @@ a.device:hover {
     scale: 1.8;
   }
 }
-@keyframes toast {
+@keyframes heads-up {
   0%,
   36% {
     opacity: 0;
-    translate: 0 12px;
+    translate: -50% -40%;
   }
   44%,
   88% {
     opacity: 1;
-    translate: 0 0;
+    translate: -50% 0;
   }
   96%,
   100% {
     opacity: 0;
-    translate: 0 12px;
+    translate: -50% -40%;
   }
 }
 .steps {
