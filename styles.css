@@ -927,10 +927,41 @@ a.device:hover {
 }
 .nfc-proof {
   display: grid;
-  grid-template-columns: minmax(0, 200px) 1fr;
-  gap: 24px;
-  align-items: center;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: 24px;
+  align-items: end;
+  max-width: 480px;
   margin-top: 40px;
+}
+.nfc-proof figure {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 2;
+  margin: 0;
+}
+.nfc-proof figcaption {
+  align-self: start;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.nfc-proof figcaption strong {
+  display: block;
+  color: var(--text);
+}
+.notice-shot {
+  display: block;
+  filter: drop-shadow(0 30px 40px rgb(0 0 0 / 0.7));
+}
+.notice-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.nfc-proof-note {
+  margin-top: 20px;
 }
 
 /* ---------- Privacy band (paper) ---------- */
