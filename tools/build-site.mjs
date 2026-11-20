@@ -30,6 +30,7 @@ const ALLOW = [
   "support/index.html",
   "support/support.js",
   "assets/branding",
+  "assets/photos",
   "assets/screenshots/release",
   "assets/social",
 ];

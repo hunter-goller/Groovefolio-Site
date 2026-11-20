@@ -750,7 +750,9 @@ a.device:hover {
       rgb(243 238 231 / 0.9) 0 6%,
       transparent 6.1%
     ),
+    url("/assets/photos/feed-like-fishes-sleeve.webp") center / cover,
     linear-gradient(160deg, #2a2521, #1a1714);
+  border-radius: 4px;
   box-shadow:
     inset 0 0 0 1px rgb(243 238 231 / 0.12),
     0 30px 60px -20px rgb(0 0 0 / 0.8);
