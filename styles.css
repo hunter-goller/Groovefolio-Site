@@ -388,14 +388,6 @@ a.device {
 a.device:hover {
   transform: translateY(-4px);
 }
-.device--crop {
-  overflow: hidden;
-}
-.device--crop img {
-  aspect-ratio: 840 / 1180;
-  object-fit: cover;
-  object-position: 50% 100%;
-}
 
 /* ---------- Hero ---------- */
 .hero {
