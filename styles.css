@@ -3,9 +3,8 @@
   One shared stylesheet for every page. Mobile-first, no build step,
   no remote font requests. Colour pairs are WCAG AA or better:
     --text on --bg ≈ 17:1, --muted on --bg ≈ 8.5:1,
-    --accent on --bg ≈ 5.2:1, --bg on --accent ≈ 5.2:1,
-    --paper-ink on --paper ≈ 15:1, --paper-muted on --paper ≈ 6.7:1,
-    --accent-deep on --paper ≈ 5.1:1.
+    --accent on --bg ≈ 5.2:1, --bg on --accent ≈ 5.2:1.
+    The privacy band (--bg-2) keeps every pair above 4.5:1.
   The smallest text on the site is 14px.
 */
 :root {
@@ -17,11 +16,6 @@
   --text: #f3eee7;
   --muted: #b4aba1;
   --accent: #d4622a;
-  --accent-deep: #a8441a;
-  --paper: #f3eee7;
-  --paper-ink: #1a1715;
-  --paper-muted: #5a524b;
-  --paper-line: rgb(26 23 21 / 0.16);
 
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua",
     "Noto Serif", Georgia, serif;
@@ -515,16 +509,10 @@ a.device:hover {
   animation: spin 1.8s linear infinite;
 }
 .record-disc::before {
-  /* label text + sheen, rotates with the disc */
-  content: "GROOVEFOLIO · 33⅓ · SIDE A ·";
+  /* sheen, rotates with the disc */
+  content: "";
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--bg);
   background: conic-gradient(
     from 30deg,
     transparent 0 12%,
@@ -959,47 +947,27 @@ a.device:hover {
   margin-top: 20px;
 }
 
-/* ---------- Privacy band (paper) ---------- */
-.paper {
-  color: var(--paper-ink);
-  background: var(--paper);
-  border-top: 0;
-}
-.paper .track,
-.paper .lede,
-.paper .note,
-.paper .ledger span {
-  color: var(--paper-muted);
-}
-.paper .track b,
-.paper .title em {
-  color: var(--accent-deep);
-}
-.paper .track::after {
-  background: var(--paper-line);
-}
-.paper .text-link {
-  color: var(--paper-ink);
-  text-decoration-color: var(--accent-deep);
-}
-.paper .text-link:hover {
-  color: var(--accent-deep);
-}
-.paper :focus-visible {
-  outline-color: var(--accent-deep);
+/* ---------- Privacy band ---------- */
+.band {
+  background: var(--bg-2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 .ledger {
   display: grid;
   margin: 56px 0 0;
   padding: 0;
   list-style: none;
-  border-top: 2px solid var(--paper-ink);
+  border-top: 2px solid var(--line-strong);
 }
 .ledger li {
   display: grid;
   gap: 6px;
   padding: 24px 0;
-  border-bottom: 1px solid var(--paper-line);
+  border-bottom: 1px solid var(--line);
+}
+.ledger span {
+  color: var(--muted);
 }
 .ledger strong {
   font-family: var(--serif);
@@ -1026,7 +994,7 @@ a.device:hover {
   }
 }
 .caveat .label {
-  color: var(--accent-deep);
+  color: var(--accent);
 }
 
 /* ---------- Run-out (CTA + FAQ) ---------- */
