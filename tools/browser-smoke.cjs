@@ -103,7 +103,9 @@ function auditPage() {
     const errors = [];
     page.on("pageerror", (error) => errors.push(error.message));
     page.on("console", (msg) => {
-      if (msg.type() === "error") errors.push(msg.text());
+      // The 404 check below loads a missing page on purpose; newer Chromium also logs that.
+      if (msg.type() === "error" && !msg.location().url.includes("/does-not-exist"))
+        errors.push(`${msg.text()} @ ${msg.location().url}`);
     });
     page.on("response", (response) => {
       if (response.status() >= 400 && !response.url().includes("/does-not-exist")) errors.push(`${response.status()} ${response.url()}`);
@@ -142,7 +144,14 @@ function auditPage() {
         assert(await page.locator('#nav-links a[href="#shelf"]').isVisible(), "desktop nav visible");
       }
       if (width === 1440 || width === 390) await audit(`/ at ${width}px`);
-      await page.evaluate(() => scrollTo(0, document.body.scrollHeight));
+      // Step down the page so every lazy-loaded screenshot enters the viewport.
+      await page.evaluate(async () => {
+        for (let y = 0; y < document.body.scrollHeight; y += innerHeight / 2) {
+          scrollTo(0, y);
+          await new Promise((r) => setTimeout(r, 50));
+        }
+        scrollTo(0, document.body.scrollHeight);
+      });
       await page.waitForFunction(() => [...document.images].filter((i) => i.getAttribute("src")).every((i) => i.complete && i.naturalWidth > 0));
       await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
       await page.screenshot({ path: path.join(results, `home-${width}.png`), fullPage: true });
