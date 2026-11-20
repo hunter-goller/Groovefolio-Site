@@ -55,7 +55,7 @@ if (dialog && typeof dialog.showModal === "function") {
   });
 }
 
-/* ---- Scroll reveal, record spin and NFC demo: only run while visible ---- */
+/* ---- Scroll reveal and NFC demo: only run while visible ---- */
 if ("IntersectionObserver" in window) {
   const reveal = new IntersectionObserver(
     (entries) =>
@@ -86,7 +86,6 @@ if ("IntersectionObserver" in window) {
       el.classList.toggle(className, whenVisible === entry.isIntersecting),
     ).observe(el);
   };
-  toggleOnView(".hero-stage", "is-paused", false);
   toggleOnView(".tap-demo", "is-playing", true);
 } else {
   document
