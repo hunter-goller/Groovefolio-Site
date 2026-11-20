@@ -1,72 +1,97 @@
-/* Content and image links also work without JavaScript. */
+/* Progressive enhancement only: every section, link and image works without JS. */
 document.documentElement.classList.add("js");
+
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+/* ---- Mobile navigation ---- */
 const menuButton = document.querySelector(".menu-toggle");
-const navigation = document.querySelector("#navigation");
-function closeMenu() {
-  navigation.classList.remove("is-open");
-  menuButton.setAttribute("aria-expanded", "false");
-}
-menuButton.addEventListener("click", () => {
-  const expanded = menuButton.getAttribute("aria-expanded") !== "true";
-  menuButton.setAttribute("aria-expanded", String(expanded));
-  navigation.classList.toggle("is-open", expanded);
-});
-navigation
-  .querySelectorAll("a")
-  .forEach((link) => link.addEventListener("click", closeMenu));
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && navigation.classList.contains("is-open")) {
-    closeMenu();
-    menuButton.focus();
-  }
-});
-const featureButtons = [...document.querySelectorAll("[data-feature]")];
-function selectFeature(selected) {
-  featureButtons.forEach((button) => {
-    const active = button === selected;
-    button.setAttribute("aria-pressed", String(active));
-    document.getElementById(button.getAttribute("aria-controls")).hidden =
-      !active;
+const navLinks = document.querySelector("#nav-links");
+if (menuButton && navLinks) {
+  const setMenu = (open) => {
+    menuButton.setAttribute("aria-expanded", String(open));
+    navLinks.classList.toggle("is-open", open);
+  };
+  menuButton.addEventListener("click", () =>
+    setMenu(menuButton.getAttribute("aria-expanded") !== "true"),
+  );
+  navLinks
+    .querySelectorAll("a")
+    .forEach((link) => link.addEventListener("click", () => setMenu(false)));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && navLinks.classList.contains("is-open")) {
+      setMenu(false);
+      menuButton.focus();
+    }
   });
 }
-featureButtons.forEach((button) =>
-  button.addEventListener("click", () => selectFeature(button)),
-);
-selectFeature(featureButtons[0]);
-const dialog = document.querySelector(".screenshot-dialog");
-let previousFocus;
-if (typeof dialog.showModal === "function") {
+
+/* ---- Screenshot enlargement (native <dialog>, focus returns to the link) ---- */
+const dialog = document.querySelector(".shot-dialog");
+if (dialog && typeof dialog.showModal === "function") {
+  const image = dialog.querySelector("img");
+  let opener;
   document.querySelectorAll("[data-zoom]").forEach((link) => {
     link.addEventListener("click", (event) => {
       if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)
         return;
       event.preventDefault();
-      previousFocus = link;
-      const image = dialog.querySelector("img");
+      opener = link;
       image.src = link.href;
-      image.alt = link.querySelector("img")?.alt || link.textContent.trim();
+      image.alt = link.querySelector("img")?.alt || "";
       dialog.showModal();
       dialog.scrollTop = 0;
       document.body.classList.add("dialog-open");
     });
   });
   dialog
-    .querySelector("button")
+    .querySelector(".dialog-close")
     .addEventListener("click", () => dialog.close());
   dialog.addEventListener("click", (event) => {
-    if (event.target !== dialog) return;
-    const rect = dialog.getBoundingClientRect();
-    if (
-      event.clientX < rect.left ||
-      event.clientX > rect.right ||
-      event.clientY < rect.top ||
-      event.clientY > rect.bottom
-    )
-      dialog.close();
+    if (event.target === dialog) dialog.close();
   });
   dialog.addEventListener("close", () => {
     document.body.classList.remove("dialog-open");
-    previousFocus?.focus({ preventScroll: true });
+    opener?.focus({ preventScroll: true });
   });
 }
-document.querySelector("[data-year]").textContent = new Date().getFullYear();
+
+/* ---- Scroll reveal and NFC demo: only run while visible ---- */
+if ("IntersectionObserver" in window) {
+  const reveal = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-in");
+          reveal.unobserve(entry.target);
+        }
+      }),
+    { rootMargin: "0px 0px -8% 0px" },
+  );
+  if (!reduceMotion.matches) {
+    document.querySelectorAll(".reveal").forEach((el) => {
+      // Anything already on screen at load stays visible immediately.
+      if (el.getBoundingClientRect().top < innerHeight) el.classList.add("is-in");
+      else reveal.observe(el);
+    });
+  } else {
+    document
+      .querySelectorAll(".reveal")
+      .forEach((el) => el.classList.add("is-in"));
+  }
+
+  const toggleOnView = (selector, className, whenVisible) => {
+    const el = document.querySelector(selector);
+    if (!el) return;
+    new IntersectionObserver(([entry]) =>
+      el.classList.toggle(className, whenVisible === entry.isIntersecting),
+    ).observe(el);
+  };
+  toggleOnView(".tap-demo", "is-playing", true);
+} else {
+  document
+    .querySelectorAll(".reveal")
+    .forEach((el) => el.classList.add("is-in"));
+}
+
+const year = document.querySelector("[data-year]");
+if (year) year.textContent = new Date().getFullYear();
