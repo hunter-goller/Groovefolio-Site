@@ -55,6 +55,9 @@ body {
   margin: 0;
   background: var(--bg);
   font-size: 1.0625rem;
+  /* Long unbroken strings (email addresses, URLs) wrap instead of
+     overflowing narrow phones, whatever font the device falls back to. */
+  overflow-wrap: break-word;
   overflow-x: clip;
 }
 @media (min-width: 768px) {
@@ -1135,6 +1138,8 @@ body.dialog-open {
 }
 .page-body {
   display: grid;
+  /* minmax(0, …) so a long email address can't widen the column on phones. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 48px;
   padding-block: 48px var(--section);
 }
